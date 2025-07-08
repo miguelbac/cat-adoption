@@ -6,22 +6,26 @@ import { protectoras } from '../../services/mapService';
 
 export default function MapPage() {
   useEffect(() => {
-    // Crear mapa centrado en Gijón
-    const map = L.map('map').setView([43.5456, -5.6615], 13);
+    // Esperar a que el elemento con id 'map' exista en el DOM
+    const mapContainer = document.getElementById('map');
+    if (!mapContainer) return;
 
-    // Cargar mapa base (OpenStreetMap)
+    // Crear mapa centrado en Gijón
+    const map = L.map(mapContainer).setView([43.5456, -5.6615], 13);
+
+    // Cargar capa base OpenStreetMap
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors',
     }).addTo(map);
 
-    // Añadir marcadores desde MapService.js
+    // Añadir marcadores de protectoras
     protectoras.forEach((p) => {
       L.marker([p.lat, p.lng])
         .addTo(map)
         .bindPopup(`<b>${p.nombre}</b>`);
     });
 
-    // Cleanup para evitar duplicados
+    // Limpiar al desmontar
     return () => {
       map.remove();
     };
@@ -30,7 +34,9 @@ export default function MapPage() {
   return (
     <div className="map-container">
       <h1 className="title">¿Dónde Estamos?</h1>
-      <div id="map"></div>
+
+      {/* Este div se usa como contenedor del mapa */}
+      <div id="map" style={{ height: '400px' }}></div>
 
       <div className="protectoras-list">
         {protectoras.map((p) => (
