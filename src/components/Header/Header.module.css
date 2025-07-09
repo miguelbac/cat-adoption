@@ -1,0 +1,117 @@
+/* Añade esto en la primera línea de tu archivo CSS */
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap');
+
+.header {
+  background-color: #EEDDD3;
+  height: 175px;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* CORREGIDO: 'space-between' para el layout de 3 columnas */
+  position: relative; 
+}
+
+.headerLeft, .headerCenter, .headerRight {
+  flex: 1; /* CORREGIDO: flex: 1 para una distribución más equilibrada */
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+}
+
+.headerRight {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.headerCenter h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #000000 !important;
+  font-family: 'Red Hat Text', sans-serif !important;
+  letter-spacing: 1px !important;
+}
+
+.menuButton {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  z-index: 1001; /* Asegura que el botón esté por encima del menú */
+}
+
+.menuIcon {
+  width: 75px; 
+  height: auto;
+}
+
+/* --- Estilos del Botón de Cierre del Menú --- */
+.closeButton {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  position: absolute; 
+  top: 2rem;
+  right: 2rem;
+}
+
+.closeButton img {
+  width: 75px; 
+  height: auto;
+}
+
+/* --- Estilos del Panel de Navegación --- */
+.navMenu {
+  box-sizing: border-box;
+  background-color: #EEDDD3;
+  height: 100vh;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  right: -250px;
+  padding: 2rem;
+  padding-top: 7rem;
+  transition: right 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+}
+.navMenuOpen {
+  right: 0;
+}
+.navMenu a {
+  color: #000;
+  text-decoration: none;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  z-index: 1000; /* Asegura que el menú esté por encima de otros elementos */
+}
+
+.logo {
+  height: 130px;
+  width: auto;
+}
+
+/* --- RESPONSIVIDAD (Reglas unificadas) --- */
+@media (max-width: 768px) {
+  .header {
+    height: 70px;
+    padding: 0 1rem;
+  }
+  .headerCenter h1 {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+  }
+  .logo {
+    height: 50px;
+  }
+  /* AÑADIDO: Tamaño del icono para móvil */
+  .menuIcon {
+    width: 35px;
+  }
+}
