@@ -33,23 +33,31 @@ export default function MapPage() {
 
   return (
     <div className="map-page">
-  <h1 className="map-page__title">¿Dónde Estamos?</h1>
+      <h1 className="map-page__title">¿Dónde Estamos?</h1>
+      <div className="map-page__info">
+        <div className="map-page__info-line">
+          <span className="map-page__address">Avenida Gatuna Nº13</span>
+          <span className="map-page__phone">+34645967492</span>
+        </div>
+        <div className="map-page__info-line map-page__info-line--email">
+          <span className="map-page__email">adoptaunmichi@miaumail.com</span>
+        </div>
+      </div>
+      <div id="map" className="map-page__map"></div>
 
-  <div id="map" className="map-page__map"></div>
-
-  <div className="map-page__list">
-    {protectoras.map((p) => (
-      <a
-        key={p.id}
-        href={`https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lng}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="map-page__link"
-      >
-        {p.nombre}
-      </a>
-    ))}
-  </div>
-</div>
+      <div className="map-page__list">
+        {protectoras.map((p) => (
+          <a
+            key={p.id}
+            href={`https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lng}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="map-page__link"
+          >
+            {p.nombre}
+          </a>
+        ))}
+      </div>
+    </div>
   );
 }

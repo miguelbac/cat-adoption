@@ -1,7 +1,6 @@
 .map-page {
   padding: 20px;
   max-width: 1200px;
-  width: 90%;
   margin: 0 auto;
 }
 
@@ -11,6 +10,28 @@
   margin-bottom: 20px;
   font-weight: 600;
   color: #333;
+}
+
+.map-page__info {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.map-page__info-line {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.map-page__info-line--email {
+  margin-bottom: 20px;
+}
+
+.map-page__email {
+  text-decoration: underline;
 }
 
 .map-page__map {
@@ -48,6 +69,11 @@
 
   .map-page__title {
     font-size: 1.5rem;
+  }
+
+  .map-page__info-line {
+    flex-direction: column;
+    gap: 5px;
   }
 
   .map-page__map {

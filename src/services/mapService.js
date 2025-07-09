@@ -1,7 +1,7 @@
 export const protectoras = [
   {
     id: 1,
-    nombre: "Protectora Gijón Felino",
+    nombre: "Adopta un Michi",
     lat: 43.5456,
     lng: -5.6615,
   },
