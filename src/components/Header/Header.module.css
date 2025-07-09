@@ -1,5 +1,5 @@
-/* Añade esto en la primera línea de tu archivo CSS */
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@500&display=swap');
+
 
 .header {
   background-color: #EEDDD3;
@@ -11,8 +11,20 @@
   position: relative; 
 }
 
-.headerLeft, .headerCenter, .headerRight {
+.headerLeft, .headerRight {
   flex: 1; /* CORREGIDO: flex: 1 para una distribución más equilibrada */
+}
+
+.headerCenter {
+  flex: 2;
+  text-align: center;
+}
+
+.headerRight {
+  /*  aseguramos de que el contenido se alinee a la derecha */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .headerLeft {
@@ -104,7 +116,7 @@
     padding: 0 1rem;
   }
   .headerCenter h1 {
-    font-size: 1.5rem;
+    font-size: 1rem;
     letter-spacing: 2px;
   }
   .logo {

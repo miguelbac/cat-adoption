@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300&display=swap');
 
 .footer {
   background-color: #eeddd3;
@@ -44,4 +44,22 @@
 .socialIconImage {
   width: 90px; /* Ajusta el tamaño de los iconos a tu gusto */
   height: 90px;
+}
+
+/* Añade esto al final de Footer.module.css */
+
+@media (max-width: 768px) {
+  .socialIconImage {
+    width: 20px;
+    height: 20px;
+  }
+  
+ .footer .legalLinks a {
+    font-size: 0.8rem;
+  }
+
+  .footer {
+    padding-top: 1rem;  
+    padding-bottom: 1rem;
+  }
 }
