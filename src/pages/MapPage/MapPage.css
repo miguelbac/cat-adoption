@@ -1,86 +1,106 @@
 .map-page {
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url('/src/assets/background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 3rem 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #000;
 }
 
 .map-page__title {
-  font-size: 2rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
   text-align: center;
-  margin-bottom: 20px;
-  font-weight: 600;
-  color: #333;
 }
 
 .map-page__info {
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
   text-align: center;
+  padding: 0 1rem;
 }
 
-.map-page__info-line {
+.map-page__line {
   display: flex;
   justify-content: center;
-  gap: 50px;
-  margin-bottom: 10px;
-  font-size: 1rem;
-  color: #333;
-}
-
-.map-page__info-line--email {
-  margin-bottom: 20px;
+  gap: 4rem;
 }
 
 .map-page__email {
   text-decoration: underline;
+  font-weight: 500;
 }
 
 .map-page__map {
   width: 100%;
-  height: 500px;
+  max-width: 800px;
+  height: 400px;
+  margin-bottom: 2rem;
+  border: 2px solid #ccc;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  margin-bottom: 20px;
+  overflow: hidden;
 }
 
-.map-page__list {
+.map-page__protectoras-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  font-size: 1rem;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1rem;
 }
 
-.map-page__link {
+.map-page__protectora-link {
   color: #0066cc;
   text-decoration: none;
+  font-size: 1rem;
   transition: color 0.3s;
 }
 
-.map-page__link:hover,
-.map-page__link:focus {
+.map-page__protectora-link:hover,
+.map-page__protectora-link:focus {
   color: #004999;
   text-decoration: underline;
-  outline: none;
 }
+
 
 @media (max-width: 768px) {
   .map-page {
-    padding: 10px;
+    padding: 2rem 1rem;
   }
 
   .map-page__title {
-    font-size: 1.5rem;
-  }
-
-  .map-page__info-line {
-    flex-direction: column;
-    gap: 5px;
+    font-size: 2rem;
   }
 
   .map-page__map {
     height: 300px;
   }
 
-  .map-page__list {
+  .map-page__protectora-link {
     font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .map-page__title {
+    font-size: 1.6rem;
+  }
+
+  .map-page__map {
+    height: 250px;
+  }
+
+  .map-page__protectora-link {
+    font-size: 0.9rem;
   }
 }

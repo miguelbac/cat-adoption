@@ -32,20 +32,20 @@ export default function MapPage() {
   }, []);
 
   return (
-    <div className="map-page">
+     <main className="map-page">
       <h1 className="map-page__title">¿Dónde Estamos?</h1>
+
       <div className="map-page__info">
-        <div className="map-page__info-line">
+        <div className="map-page__line">
           <span className="map-page__address">Avenida Gatuna Nº13</span>
           <span className="map-page__phone">+34645967492</span>
         </div>
-        <div className="map-page__info-line map-page__info-line--email">
-          <span className="map-page__email">adoptaunmichi@miaumail.com</span>
-        </div>
+        <div className="map-page__email">adoptaunmichi@miaumail.com</div>
       </div>
+
       <div id="map" className="map-page__map"></div>
 
-      <div className="map-page__list">
+      <div className="map-page__protectoras-list">
         {protectoras.map((p) => (
           <a
             key={p.id}
@@ -58,6 +58,6 @@ export default function MapPage() {
           </a>
         ))}
       </div>
-    </div>
+    </main>
   );
 }
