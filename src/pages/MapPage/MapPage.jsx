@@ -32,25 +32,24 @@ export default function MapPage() {
   }, []);
 
   return (
-    <div className="map-container">
-      <h1 className="title">¿Dónde Estamos?</h1>
+    <div className="map-page">
+  <h1 className="map-page__title">¿Dónde Estamos?</h1>
 
-      {/* Este div se usa como contenedor del mapa */}
-      <div id="map"></div>
+  <div id="map" className="map-page__map"></div>
 
-      <div className="protectoras-list">
-        {protectoras.map((p) => (
-          <a
-            key={p.id}
-            href={`https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lng}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="protectora-link"
-          >
-            {p.nombre}
-          </a>
-        ))}
-      </div>
-    </div>
+  <div className="map-page__list">
+    {protectoras.map((p) => (
+      <a
+        key={p.id}
+        href={`https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lng}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="map-page__link"
+      >
+        {p.nombre}
+      </a>
+    ))}
+  </div>
+</div>
   );
 }
