@@ -31,19 +31,17 @@ const Btn = ({
   fontsize = "20px",
 }) => {
   return (
-    <div>
-      <button
-        className="btn-comp"
-        onClick={onClick}
-        style={{
-          color: textcolor,
-          backgroundColor: bgcolor,
-          fontSize: fontsize,
-        }}
-      >
-        {label}
-      </button>
-    </div>
+    <button
+      className="btn-comp"
+      onClick={onClick}
+      style={{
+        color: textcolor,
+        backgroundColor: bgcolor,
+        fontSize: fontsize,
+      }}
+    >
+      {label}
+    </button>
   );
 };
 
