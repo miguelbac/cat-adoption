@@ -36,7 +36,7 @@ export default function MapPage() {
       <h1 className="title">¿Dónde Estamos?</h1>
 
       {/* Este div se usa como contenedor del mapa */}
-      <div id="map" style={{ height: '400px' }}></div>
+      <div id="map"></div>
 
       <div className="protectoras-list">
         {protectoras.map((p) => (

@@ -1,6 +1,7 @@
 .map-container {
   padding: 20px;
-  max-width: 900px;
+  max-width: 1200px;
+  width: 90%;
   margin: 0 auto;
 }
 
@@ -14,7 +15,7 @@
 
 #map {
   width: 100%;
-  height: 400px;
+  height: 500px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   margin-bottom: 20px;
@@ -38,4 +39,22 @@
   color: #004999;
   text-decoration: underline;
   outline: none;
+}
+
+@media (max-width: 768px) {
+  .map-container {
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  #map {
+    height: 300px;
+  }
+
+  .protectoras-list {
+    font-size: 0.95rem;
+  }
 }
