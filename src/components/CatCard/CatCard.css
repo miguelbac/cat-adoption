@@ -1,0 +1,29 @@
+.cat-card {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 1rem;
+  width: 250px;
+}
+
+.cat-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+.cat-card h2 {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.cat-card button {
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}

@@ -2,6 +2,8 @@ import React from "react";
 import "./AdoptPage.css";
 import wipCat from "../../assets/wip-cat.png";
 import bgImage from "../../assets/background.png";
+import CatSlider from "../../components/CatSlider/CatSlider";
+
 
 function AdoptPage() {
   return (
@@ -13,6 +15,7 @@ function AdoptPage() {
         </p>
         <img src={wipCat} alt="Cato currela" />
       </div>
+            <CatSlider />
     </div>
   );
 }
