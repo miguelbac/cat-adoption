@@ -4,7 +4,6 @@ import wipCat from "../../assets/wip-cat.png";
 import bgImage from "../../assets/background.png";
 import CatSlider from "../../components/CatSlider/CatSlider";
 
-
 function AdoptPage() {
   return (
     <div className="adopt-page" style={{ backgroundImage: `url(${bgImage})` }}>
@@ -14,6 +13,7 @@ function AdoptPage() {
           La página de adopción estará lista tan pronto como nos sea posible.
         </p>
         <img src={wipCat} alt="Cato currela" />
+        <CatSlider />
       </div>
     </div>
   );

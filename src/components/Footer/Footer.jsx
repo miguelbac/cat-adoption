@@ -9,7 +9,7 @@ import twitterIcon from '../../assets/Twitter.png';
 import tiktokIcon from '../../assets/Tiktok.png';
 
 const socialLinks = [
-  { id: 'location', href: '#', icon: locationIcon, label: 'Ubicación' },
+  { id: 'location', href: 'https://www.google.com/maps/search/?api=1&query=43.5456,-5.6615', icon: locationIcon, label: 'Ubicación' },
   { id: 'youtube', href: '#', icon: youtubeIcon, label: 'YouTube' },
   { id: 'instagram', href: '#', icon: instagramIcon, label: 'Instagram' },
   { id: 'facebook', href: '#', icon: facebookIcon, label: 'Facebook' },
