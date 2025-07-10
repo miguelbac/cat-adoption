@@ -1,0 +1,18 @@
+.btn-comp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2rem;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  border: none;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.btn-comp:hover {
+  filter: brightness(110%);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00000072;
+}
