@@ -1,18 +1,22 @@
-import { useState } from 'react'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import AdoptPage from './pages/AdoptPage/AdoptPage';
+import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
+import Test from './components/Test/Test'
+import './App.css'
+import { Routes, Route, Navigate } from 'react-router-dom';
+import MapPage from './pages/MapPage/MapPage';
 
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
-    <BrowserRouter>
+    <>
+    <Header></Header>
       <Routes>
-        <Route path="/" element={<Navigate to="/adoptar" />} />
-        <Route path="/adoptar" element={<AdoptPage />} />
+        <Route path="/" element={<Navigate to="/mapa" />} />
+        <Route path="/mapa" element={<MapPage />} />
       </Routes>
-    </BrowserRouter>
-  );
+    <Footer></Footer>
+    </>
+  )
 }
 
-export default App;
+export default App
