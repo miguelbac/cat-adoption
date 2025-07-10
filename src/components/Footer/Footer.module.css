@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300&display=swap');
 
 .footer {
+  width: 100%;
+  box-sizing: border-box;
+/*lineas 4 y 3 añadidas para Layout responsive*/
+
   background-color: #eeddd3;
   color: #000;
   padding: 0.5rem 3rem;

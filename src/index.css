@@ -19,6 +19,8 @@ body {
   min-width: 320px;
   min-height: 100vh;
   overflow-x: hidden;
+  display: flex; /*modificado para Layout responsive*/
+  flex-direction: column; /*modificado Layout responsive*/
 }
 
 h1 {
