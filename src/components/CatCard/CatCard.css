@@ -1,49 +1,112 @@
-/* components/CatCard.css */
+/* CatCard.css */
 .cat-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.5s ease;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: white;
-  border-radius: 20px;
-  padding: 1rem;
-  transition: transform 0.5s ease;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  width: 250px;
-  height: 340px;
-  box-sizing: border-box;
+  justify-content: center;
+  padding: 15px;
+  position: relative;
+  min-height: 280px;
+  flex-shrink: 0;
 }
 
 .cat-card img {
   width: 200px;
   height: 200px;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
 }
 
 .cat-card h2 {
-  margin: 0.5rem 0;
-  font-size: 1.2rem;
+  margin: 10px 0 5px 0;
+  font-size: 18px;
+  color: #333;
   text-align: center;
+  font-weight: 600;
 }
 
 .cat-card button {
-  background-color: #00c76f;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   border: none;
-  border-radius: 999px;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  margin-top: 0.5rem;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
 }
 
-/* Tamaños dinámicos */
-.cat-card.side {
-  transform: scale(0.8);
-  opacity: 0.7;
+.cat-card button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.5);
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
 }
 
+.cat-card button:active {
+  transform: translateY(0);
+}
+
+/* Estilos para card central */
 .cat-card.center {
   transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  z-index: 10;
   opacity: 1;
+}
+
+.cat-card.center img {
+  transform: scale(1.02);
+}
+
+.cat-card.center h2 {
+  font-size: 20px;
+  color: #2c3e50;
+}
+
+/* Estilos para cards laterales */
+.cat-card.side {
+  transform: scale(0.85);
+  z-index: 5;
+}
+
+
+
+.cat-card.side h2 {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Animaciones adicionales */
+
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cat-card img {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .cat-card h2 {
+    font-size: 16px;
+  }
+  
+  .cat-card.center h2 {
+    font-size: 18px;
+  }
+  
+  .cat-card.side h2 {
+    font-size: 14px;
+  }
 }
