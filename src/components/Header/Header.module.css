@@ -1,84 +1,62 @@
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@500&display=swap');
 
-
 .header {
   background-color: #EEDDD3;
-  height: 175px;
+  height: 100px;
   padding: 0 2rem;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* CORREGIDO: 'space-between' para el layout de 3 columnas */
-  position: relative; 
+  justify-content: space-between;
+  position: relative;
 }
 
-.headerLeft, .headerRight {
-  flex: 1; /* CORREGIDO: flex: 1 para una distribución más equilibrada */
+.header__section-left, .header__section-right {
+  flex: 1;
 }
 
-.headerCenter {
+.header__section-center {
   flex: 2;
   text-align: center;
 }
 
-.headerRight {
-  /*  aseguramos de que el contenido se alinee a la derecha */
+.header__section-right {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 
-.headerLeft {
-  display: flex;
-  align-items: center;
-}
-
-.headerRight {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.headerCenter h1 {
+.header__title {
   margin: 0;
   font-size: 2rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: #000000 !important;
-  font-family: 'Red Hat Text', sans-serif !important;
-  letter-spacing: 1px !important;
+  color: #000000;
+  font-family: 'Red Hat Text', sans-serif;
+  letter-spacing: 1px;
 }
 
-.menuButton {
+.header__menu-button {
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
   position: relative;
-  z-index: 1001; /* Asegura que el botón esté por encima del menú */
+  z-index: 1001;
 }
 
-.menuIcon {
-  width: 100px; 
+.header__icon {
+  width: 100px;
   height: auto;
+  display: block;
 }
 
-/* --- Estilos del Botón de Cierre del Menú --- */
-.closeButton {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  position: absolute; 
-  top: 2rem;
-  right: 2rem;
+.header__logo {
+  height: 80px;
+  width: auto;
+  display: block;
 }
 
-.closeButton img {
-  width: 100px; 
-  height: auto;
-}
-
-/* --- Estilos del Panel de Navegación --- */
-.navMenu {
+.nav-menu {
   box-sizing: border-box;
   background-color: #EEDDD3;
   height: 100vh;
@@ -86,44 +64,37 @@
   position: fixed;
   top: 0;
   right: -250px;
-  padding: 2rem;
-  padding-top: 7rem;
+  padding: 7rem 2rem 2rem 2rem;
   transition: right 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
   z-index: 1000;
 }
-.navMenuOpen {
+
+.nav-menu--open {
   right: 0;
 }
-.navMenu a {
+
+.nav-menu__link {
   color: #000;
   text-decoration: none;
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  z-index: 1000; /* Asegura que el menú esté por encima de otros elementos */
 }
 
-.logo {
-  height: 130px;
-  width: auto;
-}
-
-/* --- RESPONSIVIDAD (Reglas unificadas) --- */
 @media (max-width: 768px) {
   .header {
-    height: 70px;
+    height: 60px;
     padding: 0 1rem;
   }
-  .headerCenter h1 {
+  .header__title {
     font-size: 1rem;
     letter-spacing: 2px;
   }
-  .logo {
+  .header__logo {
     height: 50px;
   }
-  /* AÑADIDO: Tamaño del icono para móvil */
-  .menuIcon {
+  .header__icon {
     width: 35px;
   }
 }

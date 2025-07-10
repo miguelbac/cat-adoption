@@ -6,12 +6,11 @@ import './App.css'
 function App() {
 
   return (
-    <div className="appContainer">
+    <div className="app">
       <Header />
-      <main>
+      <main className="app__main">
         {/* El contenido principal irá aquí */}
       </main>
-
       <Footer />
     </div>
   )

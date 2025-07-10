@@ -1,47 +1,43 @@
-import { useState, useEffect } from 'react';
-import logo from '../../assets/logo.png';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import styles from './Header.module.css';
+import logo from '../../assets/logo.png';
 import menuButton from '../../assets/hmenu.png';
-import closeIcon from '../../assets/cerrar.png'; 
+import closeIcon from '../../assets/cerrar.png';
+import styles from './Header.module.css';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-     useEffect(() => {
-    console.log(`El menú ahora está: ${isOpen ? 'Abierto' : 'Cerrado'}`);
-  }, [isOpen]);
-
- return (
+  return (
     <>
       <header className={styles.header}>
-        <div className={styles.headerLeft}>
+        <div className={styles['header__section-left']}>
           <Link to="/">
-            <img src={logo} alt="Logo de Adopta un Michi" className={styles.logo} />
+            <img src={logo} alt="Logo de Adopta un Michi" className={styles.header__logo} />
           </Link>
         </div>
 
-        <div className={styles.headerCenter}>
-          <h1>ADOPTA UN MICHI</h1>
+        <div className={styles['header__section-center']}>
+          <h1 className={styles.header__title}>ADOPTA UN MICHI</h1>
         </div>
 
-        <div className={styles.headerRight}>
+        <div className={styles['header__section-right']}>
           <button
-            className={styles.menuButton}
+            className={styles['header__menu-button']}
             onClick={() => setIsOpen(!isOpen)}
           >
             <img
               src={isOpen ? closeIcon : menuButton}
               alt="Icono del menú"
-              className={styles.menuIcon}
+              className={styles.header__icon}
             />
           </button>
         </div>
       </header>
 
-      <nav className={isOpen ? `${styles.navMenu} ${styles.navMenuOpen}` : styles.navMenu}>
-        <Link to="/" onClick={() => setIsOpen(false)}>Inicio</Link>
-        <Link to="/adopt" onClick={() => setIsOpen(false)}>Adoptar</Link>
+      <nav className={`${styles['nav-menu']} ${isOpen ? styles['nav-menu--open'] : ''}`}>
+        <Link to="/" onClick={() => setIsOpen(false)} className={styles['nav-menu__link']}>Inicio</Link>
+        <Link to="/adopt" onClick={() => setIsOpen(false)} className={styles['nav-menu__link']}>Adoptar</Link>
       </nav>
     </>
   );

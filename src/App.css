@@ -1,10 +1,10 @@
 /*Header y Footer en App.jsx*/
-.appContainer {
+.app {
   display: flex;
   flex-direction: column;
   min-height: 100vh; /* Ocupa como mínimo toda la altura de la pantalla */
 }
 
-main {
+.app__main {
   flex-grow: 1; 
 }

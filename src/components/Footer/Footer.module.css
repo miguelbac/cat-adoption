@@ -3,63 +3,60 @@
 .footer {
   background-color: #eeddd3;
   color: #000;
-  padding: 2rem 3rem;
+  padding: 0.5rem 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* --- Sección Izquierda: Enlaces Legales --- */
-.legalLinks {
+.footer__legal {
   display: flex;
-  flex-direction: column; /* Apila los enlaces */
+  flex-direction: column;
   align-items: flex-start;
 }
 
-.footer .legalLinks a {
+.footer__link {
   color: #000000;
   text-decoration: none;
   margin-bottom: 0.5rem;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   font-family: 'Red Hat Text', sans-serif;
 }
 
-.legalLinks a:hover {
-  color: white;
+.footer__link:hover {
+  color: blue;
 }
 
-/* --- Sección Derecha: Iconos Sociales --- */
-.socialIcons a {
-  font-size: 1.8rem; /* Tamaño de los iconos */
+.footer__social {
+  display: flex;
+  align-items: center;
+}
+
+.footer__social-link {
   text-decoration: none;
-  margin-left:3rem;
+  margin-left: 3rem;
 }
 
-.socialIcons a:hover {
+.footer__social-link:hover {
   opacity: 0.8;
 }
 
-/* Añade esto a tu Footer.module.css */
-
-.socialIconImage {
-  width: 90px; /* Ajusta el tamaño de los iconos a tu gusto */
-  height: 90px;
+.footer__social-icon {
+  width: 40px;
+  height: 40px;
+  display: block;
 }
 
-/* Añade esto al final de Footer.module.css */
-
 @media (max-width: 768px) {
-  .socialIconImage {
+  .footer {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .footer__social-icon {
     width: 20px;
     height: 20px;
   }
-  
- .footer .legalLinks a {
-    font-size: 0.8rem;
-  }
-
-  .footer {
-    padding-top: 1rem;  
-    padding-bottom: 1rem;
+  .footer__link {
+    font-size: 0.6rem;
   }
 }
