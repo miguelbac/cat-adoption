@@ -1,0 +1,83 @@
+/* Contenedor principal de toda la sección */
+.cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 4rem 0; /* Espacio vertical para separar de otros elementos */
+}
+
+/* Imagen superior de los gatitos */
+.cta__cats {
+  width: 100%;
+  max-width: 500px; /* Evita que la imagen sea demasiado grande */
+  height: auto;
+  z-index: 1; /* Se asegura que esté detrás del cuadro de texto */
+}
+
+/* El cuadro de texto */
+.cta__text-box {
+  background-color: #EEDDD3;
+  border-radius: 15px;
+  text-align: center;
+  width: 90%;
+  max-width: 650px;
+  padding: 2rem 2rem 8rem;
+  margin-top: -13px; /* Solapa el cuadro sobre los gatos */
+  position: relative; /* Sirve como 'ancla' para posicionar el rasguño dentro */
+  overflow: hidden; /* Evita que el rasguño se salga del cuadro */
+}
+
+/* El rasguño decorativo */
+.cta__scratch {
+  position: absolute; /* Lo "despegamos" para moverlo libremente dentro del cuadro */
+  width: 200px;       /* Ajusta el tamaño del rasguño si lo necesitas */
+  bottom: -30px;       /* Lo posiciona en la parte de abajo */
+  left: 50%;          /* Lo centra horizontalmente */
+  transform: translateX(-50%);
+}
+
+/* El texto y el título */
+.cta__text,
+.cta__heading {
+  position: relative; /* Necesario para que el z-index funcione */
+  z-index: 2; /* Pone el texto por encima del rasguño */
+}
+
+.cta__text {
+  margin: 0;
+  font-size: 1.5rem;
+  font-family: 'Red Hat Text', sans-serif;
+}
+
+.cta__heading {
+  margin: 0.5rem 0 0 0;
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-family: 'Red Hat Text', sans-serif;
+}
+
+
+@media (max-width: 768px) {
+  .cta {
+    margin: 2rem 0;
+  }
+
+  .cta__text-box {
+    margin-top: -30px;
+    padding: 1.5rem;
+    padding-bottom: 4rem;
+  }
+
+  .cta__text {
+    font-size: 1rem;
+  }
+
+  .cta__heading {
+    font-size: 2.2rem;
+  }
+  
+  .cta__scratch {
+    width: 120px;
+    bottom: -15px; 
+  }
+}
