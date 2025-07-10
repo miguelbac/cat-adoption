@@ -13,7 +13,6 @@ function AdoptPage() {
           La página de adopción estará lista tan pronto como nos sea posible.
         </p>
         <img src={wipCat} alt="Cato currela" />
-        <CatSlider />
       </div>
     </div>
   );
