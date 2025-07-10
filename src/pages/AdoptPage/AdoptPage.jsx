@@ -4,7 +4,6 @@ import wipCat from "../../assets/wip-cat.png";
 import bgImage from "../../assets/background.png";
 import CatSlider from "../../components/CatSlider/CatSlider";
 
-
 function AdoptPage() {
   return (
     <div className="adopt-page" style={{ backgroundImage: `url(${bgImage})` }}>
@@ -14,19 +13,10 @@ function AdoptPage() {
           La página de adopción estará lista tan pronto como nos sea posible.
         </p>
         <img src={wipCat} alt="Cato currela" />
+        <CatSlider />
       </div>
     </div>
   );
 }
 
 export default AdoptPage;
-import React from 'react';
-
-export default function AdoptPage() {
-  return (
-    <main style={{ padding: '2rem', textAlign: 'center' }}>
-      <h1>Página de Adopción</h1>
-      <p>En construcción… ¡Vuelve pronto para ver gatitos disponibles!</p>
-    </main>
-  );
-}
