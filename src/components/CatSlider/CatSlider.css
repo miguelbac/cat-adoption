@@ -1,0 +1,224 @@
+/* CatSlider.css */
+.slider-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.slider-wrapper h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cat-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 40px 80px;
+  min-height: 400px;
+}
+
+.card-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  flex-direction: row;
+}
+
+/* Estilos para las flechas */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow:hover {
+  background: #f8f9fa;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.arrow:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.arrow.left {
+  left: 10px;
+}
+
+.arrow.right {
+  right: 10px;
+}
+
+/* Efectos de hover para las flechas */
+.arrow.left:hover {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.arrow.right:hover {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+/* Animaciones para el track */
+.card-track {
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .card-track {
+    gap: 30px;
+  }
+  
+  .arrow.left {
+    left: 5px;
+  }
+  
+  .arrow.right {
+    right: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .slider-wrapper h1 {
+    font-size: 2rem;
+  }
+  
+  .cat-slider {
+    padding: 20px 60px;
+  }
+  
+  .card-track {
+    gap: 20px;
+  }
+  
+  .arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+  
+  .arrow.left {
+    left: 5px;
+  }
+  
+  .arrow.right {
+    right: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slider-wrapper h1 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .cat-slider {
+    padding: 20px 50px;
+  }
+  
+  .card-track {
+    gap: 15px;
+  }
+  
+  .arrow {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+  
+  .arrow.left {
+    left: 0;
+  }
+  
+  .arrow.right {
+    right: 0;
+  }
+}
+
+/* Animación de carga */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  font-size: 18px;
+  color: #666;
+}
+
+.loading::after {
+  content: '';
+  width: 30px;
+  height: 30px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-left: 10px;
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  font-size: 18px;
+  color: #e74c3c;
+}
+
+.slider-info {
+  margin-top: 20px;
+  padding: 15px;
+  background: rgba(102, 126, 234, 0.1);
+  border-radius: 10px;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.slider-info p {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Estilos para botones deshabilitados */
+.arrow:disabled {
+
+  cursor: not-allowed;
+  transform: translateY(-50%) scale(0.9);
+}
+
+.arrow:disabled:hover {
+  background: white;
+  transform: translateY(-50%) scale(0.9);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
