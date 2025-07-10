@@ -1,12 +1,13 @@
 const API_KEY = "live_gRqlPV9KGHAT7RLKkmVcPfhpRUwVJHHhhFqRoEnukJiAjVE5DCdPuFUesNm31HgI";
 
-export async function fetchCats(limit = 10) {
+export async function fetchCats(limit = 15) {
   try {
-    const res = await fetch(`https://api.thecatapi.com/v1/images/search?limit=${limit}`, {
-      headers: {
-        "x-api-key": API_KEY,
-      },
-    });
+    const res = await fetch(
+      `https://api.thecatapi.com/v1/images/search?limit=${limit}`,
+      {
+        headers: { "x-api-key": API_KEY },
+      }
+    );
 
     const data = await res.json();
 
