@@ -1,18 +1,30 @@
 .btn-comp {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 2rem;
-  padding: 1rem 1.5rem;
-  cursor: pointer;
   border: none;
-  font-weight: 500;
-  white-space: nowrap;
-  transition: all 0.3s ease;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  user-select: none;
+  border-radius: 30px;
 }
 
 .btn-comp:hover {
-  filter: brightness(110%);
+  filter: brightness(0.9);
   transform: scale(1.05);
-  box-shadow: 0 0 15px #00000072;
+}
+
+.btn-comp:active {
+  filter: brightness(0.8);
+  transform: scale(0.95);
+}
+
+.btn-comp:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  filter: none;
+  transform: none;
 }

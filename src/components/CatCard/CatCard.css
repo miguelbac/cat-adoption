@@ -17,8 +17,8 @@
 }
 
 .cat-card img {
-  width: 200px;
-  height: 200px;
+  width: 200px !important;
+  height: 200px !important;
   object-fit: cover;
   border-radius: 8px;
   transition: transform 0.3s ease;
@@ -30,30 +30,6 @@
   color: #333;
   text-align: center;
   font-weight: 600;
-}
-
-.cat-card button {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 25px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 10px;
-  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
-}
-
-.cat-card button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.5);
-  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-}
-
-.cat-card button:active {
-  transform: translateY(0);
 }
 
 /* Estilos para card central */
