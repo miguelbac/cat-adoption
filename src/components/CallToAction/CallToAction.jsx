@@ -15,6 +15,9 @@ const CallToAction = () => {
       <div className={styles['cta__text-box']}>
         <p className={styles.cta__text}>Sin ti, no podemos seguir adelante</p>
         <h2 className={styles.cta__heading}>HAZTE SOCIO</h2>
+      </div>
+      
+      <div className={styles['cta__scratch-container']}>  
         <img 
           src={scratchImage} 
           alt="Rasguño decorativo" 

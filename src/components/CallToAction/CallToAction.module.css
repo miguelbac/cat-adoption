@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;700&display=swap');
+
 /* Contenedor principal de toda la sección */
 .cta {
   display: flex;
@@ -8,10 +10,14 @@
 
 /* Imagen superior de los gatitos */
 .cta__cats {
-  width: 100%;
-  max-width: 400px; /* Evita que la imagen sea demasiado grande */
+  width: 100% !important;
   height: auto;
-  z-index: 1; /* Se asegura que esté detrás del cuadro de texto */
+  max-width: 400px !important; /* Evita que la imagen sea demasiado grande */
+  height: auto !important;
+  position: relative;
+  z-index: 2; /* Se asegura que esté detrás del cuadro de texto */
+  align-self: center; /* se autoposiciona */
+  margin-bottom: 50px;
 }
 
 /* El cuadro de texto */
@@ -23,13 +29,26 @@
   max-width: 650px;
   position: relative; /* Sirve como 'ancla' para posicionar el rasguño dentro */
   overflow: hidden; /* Evita que el rasguño se salga del cuadro */
+  margin-top: -60px;
+  padding: 2rem 2rem 6rem;
 }
 
 /* El rasguño decorativo */
+.cta__scratch-container {
+  position: absolute;
+  width: 200px;   /* <-- AJUSTA EL TAMAÑO DEL RASGUÑO */
+  bottom: -150px;   /* <-- AJUSTA LA POSICIÓN VERTICAL */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
 .cta__scratch {
   position: absolute; /* Lo "despegamos" para moverlo libremente dentro del cuadro */
-  width: 200px;       /* Ajusta el tamaño del rasguño si lo necesitas */
-  bottom: -30px;       /* Lo posiciona en la parte de abajo */
+  width: 100%;       /* Ajusta el tamaño del rasguño si lo necesitas */
+  height: auto;
+  display: block;
+  /*bottom: -150px;       /* Lo posiciona en la parte de abajo */
   left: 50%;          /* Lo centra horizontalmente */
   transform: translateX(-50%);
 }
@@ -43,7 +62,8 @@
 
 .cta__text {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 2rem; /*1.5rem*/
+  white-space: nowrap; /* EL texto no se corta */
   font-family: 'Red Hat Text', sans-serif;
 }
 
