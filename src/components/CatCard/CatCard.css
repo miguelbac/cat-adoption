@@ -1,0 +1,88 @@
+/* CatCard.css */
+.cat-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  position: relative;
+  min-height: 280px;
+  flex-shrink: 0;
+}
+
+.cat-card img {
+  width: 200px !important;
+  height: 200px !important;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.cat-card h2 {
+  margin: 10px 0 5px 0;
+  font-size: 18px;
+  color: #333;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Estilos para card central */
+.cat-card.center {
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  opacity: 1;
+}
+
+.cat-card.center img {
+  transform: scale(1.02);
+}
+
+.cat-card.center h2 {
+  font-size: 20px;
+  color: #2c3e50;
+}
+
+/* Estilos para cards laterales */
+.cat-card.side {
+  transform: scale(0.85);
+  z-index: 5;
+}
+
+
+
+.cat-card.side h2 {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Animaciones adicionales */
+
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cat-card img {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .cat-card h2 {
+    font-size: 16px;
+  }
+  
+  .cat-card.center h2 {
+    font-size: 18px;
+  }
+  
+  .cat-card.side h2 {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,110 @@
+.map-page {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url(${bgImage});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 3rem 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #000;
+}
+
+.map-page__title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.map-page__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.map-page__line {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+}
+
+.map-page__email {
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.map-page__map {
+  width: 100%;
+  max-width: 800px;
+  height: 400px;
+  margin-bottom: 2rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.map-page__protectoras-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1rem;
+}
+
+.map-page__protectora-link {
+  color: #0066cc;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.map-page__protectora-link:hover,
+.map-page__protectora-link:focus {
+  color: #004999;
+  text-decoration: underline;
+}
+
+
+@media (max-width: 768px) {
+  .map-page {
+    padding: 2rem 1rem;
+  }
+
+  .map-page__title {
+    font-size: 2rem;
+  }
+
+  .map-page__map {
+    height: 300px;
+  }
+
+  .map-page__protectora-link {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .map-page__title {
+    font-size: 1.6rem;
+  }
+
+  .map-page__map {
+    height: 250px;
+  }
+
+  .map-page__protectora-link {
+    font-size: 0.9rem;
+  }
+}

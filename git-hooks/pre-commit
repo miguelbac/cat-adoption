@@ -1,0 +1,8 @@
+#!/bin/sh
+
+branch=$(git rev-parse --abbrev-ref HEAD)
+
+if [ "$branch" = "dev" ]; then
+  echo "❌ ERROR: Estás intentando hacer commit en la rama 'dev'. Cambia a otra rama antes de hacer commit."
+  exit 1
+fi
