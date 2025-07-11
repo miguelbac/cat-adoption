@@ -21,6 +21,20 @@
   --color-footer-background: #eeddd3;
   --color-footer-text: #000000;
   --color-footer-link-hover: blue;
+
+  /* CatSlider y tarjetas */
+  --card-bg: #ffffff;
+  --card-text: #000000;
+  --card-title: #222222;
+  --card-subtitle: #555555;
+  --arrow-bg: #f0f0f0;
+  --arrow-border: #cccccc;
+  --arrow-text: #000000;
+  --indicator-bg: #dddddd;
+  --indicator-hover: #aaaaaa;
+  --info-bg: rgba(255, 255, 255, 0.6);
+  --info-border: #ccc;
+  --loading-color: #333;
 }
 
 /* Tema oscuro */
@@ -35,6 +49,20 @@
   --color-footer-background: #1e1e1e;
   --color-footer-text: #dddddd;
   --color-footer-link-hover: lightblue;
+
+  /* CatSlider y tarjetas modo oscuro */
+  --card-bg: #1e1e1e;
+  --card-text: #f0f0f0;
+  --card-title: #ffffff;
+  --card-subtitle: #bbbbbb;
+  --arrow-bg: #333333;
+  --arrow-border: #444444;
+  --arrow-text: #f0f0f0;
+  --indicator-bg: #555555;
+  --indicator-hover: #888888;
+  --info-bg: rgba(30, 30, 30, 0.6);
+  --info-border: #444;
+  --loading-color: #ccc;
 }
 
 /* Estilo global del body */
