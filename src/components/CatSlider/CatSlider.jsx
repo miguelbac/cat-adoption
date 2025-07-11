@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { fetchCats } from "../../services/catService";
 import CatCard from "../CatCard/CatCard";
 import "./CatSlider.css";
@@ -8,14 +8,33 @@ export default function CatSlider() {
   const [centerIndex, setCenterIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [currentX, setCurrentX] = useState(0);
+  const [translateX, setTranslateX] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  
+  const sliderRef = useRef(null);
+  const touchStartRef = useRef(null);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     async function loadCats() {
       try {
         setIsLoading(true);
-        const catList = await fetchCats(15); // Cargar más gatos para mejor variedad
+        const catList = await fetchCats(15);
         setCats(catList);
-        console.log('Gatos cargados:', catList); // Debug
+        console.log('Gatos cargados:', catList);
       } catch (error) {
         console.error('Error cargando gatos:', error);
       } finally {
@@ -33,7 +52,7 @@ export default function CatSlider() {
     
     setTimeout(() => {
       setIsAnimating(false);
-    }, 500);
+    }, 300);
   };
 
   const prev = () => {
@@ -44,7 +63,7 @@ export default function CatSlider() {
     
     setTimeout(() => {
       setIsAnimating(false);
-    }, 500);
+    }, 300);
   };
 
   const goToSlide = (targetIndex) => {
@@ -55,7 +74,92 @@ export default function CatSlider() {
     
     setTimeout(() => {
       setIsAnimating(false);
-    }, 500);
+    }, 300);
+  };
+
+  // Funciones para manejar el swipe
+  const handleTouchStart = (e) => {
+    if (!isMobile) return;
+    
+    const touch = e.touches[0];
+    setStartX(touch.clientX);
+    setCurrentX(touch.clientX);
+    setIsDragging(true);
+    touchStartRef.current = touch.clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    if (!isDragging || !isMobile) return;
+    
+    e.preventDefault();
+    const touch = e.touches[0];
+    const diff = touch.clientX - startX;
+    setCurrentX(touch.clientX);
+    setTranslateX(diff);
+  };
+
+  const handleTouchEnd = () => {
+    if (!isDragging || !isMobile) return;
+    
+    const diff = currentX - startX;
+    const threshold = 50; // Mínimo desplazamiento para activar swipe
+    
+    if (Math.abs(diff) > threshold) {
+      if (diff > 0) {
+        prev(); // Swipe a la derecha = anterior
+      } else {
+        next(); // Swipe a la izquierda = siguiente
+      }
+    }
+    
+    // Reset
+    setIsDragging(false);
+    setTranslateX(0);
+    setStartX(0);
+    setCurrentX(0);
+  };
+
+  // Funciones para mouse (desktop)
+  const handleMouseDown = (e) => {
+    if (isMobile) return;
+    
+    setStartX(e.clientX);
+    setCurrentX(e.clientX);
+    setIsDragging(true);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging || isMobile) return;
+    
+    const diff = e.clientX - startX;
+    setCurrentX(e.clientX);
+    setTranslateX(diff);
+  };
+
+  const handleMouseUp = () => {
+    if (!isDragging || isMobile) return;
+    
+    const diff = currentX - startX;
+    const threshold = 50;
+    
+    if (Math.abs(diff) > threshold) {
+      if (diff > 0) {
+        prev();
+      } else {
+        next();
+      }
+    }
+    
+    setIsDragging(false);
+    setTranslateX(0);
+    setStartX(0);
+    setCurrentX(0);
+  };
+
+  const handleMouseLeave = () => {
+    if (isDragging) {
+      handleMouseUp();
+    }
   };
 
   const getCard = (offset) => {
@@ -111,7 +215,21 @@ export default function CatSlider() {
           ‹
         </button>
         
-        <div className="card-track">
+        <div 
+          ref={sliderRef}
+          className={`card-track ${isAnimating ? 'animating' : ''} ${isDragging ? 'dragging' : ''}`}
+          style={{
+            transform: `translateX(${translateX}px)`,
+            transition: isDragging ? 'none' : 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)'
+          }}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseLeave}
+        >
           {getCard(-1)}
           {getCard(0)}
           {getCard(1)}
@@ -125,6 +243,18 @@ export default function CatSlider() {
         >
           ›
         </button>
+      </div>
+      
+      {/* Indicadores de posición */}
+      <div className="slider-indicators">
+        {cats.map((_, index) => (
+          <button
+            key={index}
+            className={`indicator ${index === centerIndex ? 'active' : ''}`}
+            onClick={() => goToSlide(index)}
+            aria-label={`Ir al gato ${index + 1}`}
+          />
+        ))}
       </div>
     </div>
   );

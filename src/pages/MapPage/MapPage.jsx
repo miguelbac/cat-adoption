@@ -3,7 +3,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import './MapPage.css';
 import { protectoras } from '../../services/mapService';
-
+import bgImage from "../../assets/background.png";
 export default function MapPage() {
   useEffect(() => {
     // Esperar a que el elemento con id 'map' exista en el DOM
@@ -32,7 +32,7 @@ export default function MapPage() {
   }, []);
 
   return (
-     <main className="map-page">
+     <main className="map-page" style={{ backgroundImage: `url(${bgImage})` }}>
       <h1 className="map-page__title">¿Dónde Estamos?</h1>
 
       <div className="map-page__info">
