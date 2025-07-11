@@ -11,7 +11,6 @@ const Layout = () => {
       <Header />
       <main className={styles["app-layout__main"]}>
         <Outlet />
-        <CallToAction /> {/* ¿Temporal? */}
       </main>
       <Footer />
     </div>

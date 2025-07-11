@@ -9,7 +9,7 @@
 /* Imagen superior de los gatitos */
 .cta__cats {
   width: 100%;
-  max-width: 500px; /* Evita que la imagen sea demasiado grande */
+  max-width: 400px; /* Evita que la imagen sea demasiado grande */
   height: auto;
   z-index: 1; /* Se asegura que esté detrás del cuadro de texto */
 }
@@ -21,8 +21,6 @@
   text-align: center;
   width: 90%;
   max-width: 650px;
-  padding: 2rem 2rem 8rem;
-  margin-top: -13px; /* Solapa el cuadro sobre los gatos */
   position: relative; /* Sirve como 'ancla' para posicionar el rasguño dentro */
   overflow: hidden; /* Evita que el rasguño se salga del cuadro */
 }
