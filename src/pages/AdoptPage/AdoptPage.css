@@ -1,5 +1,4 @@
 .adopt-page {
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,7 +10,6 @@
 }
 
 .content {
-  margin-top: 7rem;
   text-align: center;
   max-width: 1000px;
   padding: 2rem;

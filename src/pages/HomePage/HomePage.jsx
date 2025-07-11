@@ -9,7 +9,7 @@ function HomePage() {
     <div className="home-page" style={{ backgroundImage: `url(${bgImage})` }}>
       <div className="content">
         <CatSlider />
-        <CallToAction />
+        <CallToAction/>
       </div>
     </div>
   );
