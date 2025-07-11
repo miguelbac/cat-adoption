@@ -1,0 +1,46 @@
+.form-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2e2d9;
+  border-radius: 15px;
+  max-width: 1200px;
+  width: 60%;
+  padding: 2%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  margin-top: 185px;
+  font-size: 24px;
+}
+
+.form-block select {
+  /* прибрати стрілочку браузера */
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.form-block h2 {
+  margin-bottom: 50px;
+  font-size: 36px;
+}
+.form-block img {
+  position: absolute;
+  top: -185px;
+}
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+}
+.form button {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  justify-self: center;
+}
