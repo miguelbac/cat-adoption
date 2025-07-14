@@ -3,8 +3,15 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import './MapPage.css';
 import { protectoras } from '../../services/mapService';
-import bgImage from "../../assets/background.png";
+import bgLight from "../../assets/background.png";
+import bgDark from "../../assets/background-black.png";
+
+import { useTheme } from "../../hooks/useTheme";
+
 export default function MapPage() {
+  const { theme } = useTheme();
+  const bgImage = theme === "dark" ? bgDark : bgLight;
+  
   useEffect(() => {
     // Esperar a que el elemento con id 'map' exista en el DOM
     const mapContainer = document.getElementById('map');
