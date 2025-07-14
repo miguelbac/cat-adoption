@@ -1,10 +1,15 @@
 import React from "react";
 import "./HomePage.css";
-import bgImage from "../../assets/background.png";
+import bgLight from "../../assets/background.png";
+import bgDark from "../../assets/background-black.png";
 import CatSlider from "../../components/CatSlider/CatSlider";
 import CallToAction from "../../components/CallToAction/CallToAction";
+import { useTheme } from "../../hooks/useTheme";
 
 function HomePage() {
+  const { theme } = useTheme();
+  const bgImage = theme === "dark" ? bgDark : bgLight;
+  
   return (
     <div className="home-page" style={{ backgroundImage: `url(${bgImage})` }}>
       <div className="content">
