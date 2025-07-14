@@ -5,23 +5,20 @@ import scratchImage from '../../assets/scratch.png';
 
 const CallToAction = () => {
   return (
-    <section className={styles.cta}>
-      <img 
-        src={catImage} 
-        alt="Gatitos" 
-        className={styles.cta__cats} 
+     <section className={styles.cta}>
+      <img
+        src={catImage}
+        alt="Gatitos de la protectora"
+        className={styles.cta__cats}
       />
-
       <div className={styles['cta__text-box']}>
         <p className={styles.cta__text}>Sin ti, no podemos seguir adelante</p>
         <h2 className={styles.cta__heading}>HAZTE SOCIO</h2>
-      </div>
-      
-      <div className={styles['cta__scratch-container']}>  
-        <img 
-          src={scratchImage} 
-          alt="Rasguño decorativo" 
-          className={styles.cta__scratch} 
+        {/* El rasguño va aquí DENTRO */}
+        <img
+          src={scratchImage}
+          alt="Rasguño decorativo"
+          className={styles.cta__scratch}
         />
       </div>
     </section>

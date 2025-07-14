@@ -9,7 +9,7 @@
   flex-grow: 1; 
 } */ 
 
-/*root para responsive de Lyout*/
+/*root para responsive de Layout*/
 #root {
   display: flex;
   flex-direction: column;

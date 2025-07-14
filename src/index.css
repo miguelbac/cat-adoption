@@ -14,8 +14,8 @@
 /* Eliminar el color de fondo global para que se vea la imagen */
 body {
   margin: 0;
-  /* display: flex;
-  place-items: center; */
+  display: flex;
+  /*place-items: center; */
   min-width: 320px;
   min-height: 100vh;
   overflow-x: hidden;
