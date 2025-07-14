@@ -5,6 +5,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import MapPage from './pages/MapPage/MapPage';
 import HomePage from './pages/HomePage/HomePage';
 import AdoptPage from './pages/AdoptPage/AdoptPage';
+import FavPage from './pages/FavPage/FavPage';
 import Layout from './components/Layout/Layout';
 import Test from './components/Test/Test';
 
@@ -14,7 +15,9 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route path="adopt" element={<AdoptPage />} />
-        <Route path="mapa" element={<MapPage />} />
+        <Route path="map" element={<MapPage />} />
+        <Route path="fav" element={<FavPage />} />
+
       </Route>
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>

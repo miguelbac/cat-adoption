@@ -162,24 +162,29 @@ export default function CatSlider() {
     }
   };
 
-  const getCard = (offset) => {
-    if (cats.length === 0) return null;
-    
-    const index = (centerIndex + offset + cats.length) % cats.length;
-    const cat = cats[index];
-    const size = offset === 0 ? "center" : "side";
-    
-    return (
-      <CatCard 
-        key={`${cat.id}-${offset}`}
-        image={cat.image}
-        name={cat.name}
-        size={size}
-        onClick={() => goToSlide(index)}
-      />
-    );
-  };
+const getCard = (offset) => {
+  if (cats.length === 0) return null;
 
+  const index = (centerIndex + offset + cats.length) % cats.length;
+  const cat = cats[index];
+  const size = offset === 0 ? "center" : "side";
+
+  if (!cat || !cat.id || !cat.image || !cat.name) {
+    console.warn("Gato inválido en índice:", index, cat);
+    return null;
+  }
+
+  return (
+    <CatCard 
+      key={`${cat.id}-${offset}`}
+      image={cat.image}
+      name={cat.name}
+      size={size}
+      onClick={() => goToSlide(index)}
+      catData={cat}
+    />
+  );
+};
   if (isLoading) {
     return (
       <div className="slider-wrapper">
