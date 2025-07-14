@@ -5,13 +5,15 @@ import './MapPage.css';
 import { protectoras } from '../../services/mapService';
 import bgLight from "../../assets/background.png";
 import bgDark from "../../assets/background-black.png";
-
 import { useTheme } from "../../hooks/useTheme";
 
 export default function MapPage() {
   const { theme } = useTheme();
   const bgImage = theme === "dark" ? bgDark : bgLight;
-  
+  const textColor = theme === "dark" ? "#eee" : "#000";
+  const linkColor = theme === "dark" ? "#9cf" : "#0066cc";
+  const linkHoverColor = theme === "dark" ? "#6af" : "#004999";
+
   useEffect(() => {
     // Esperar a que el elemento con id 'map' exista en el DOM
     const mapContainer = document.getElementById('map');
@@ -39,7 +41,7 @@ export default function MapPage() {
   }, []);
 
   return (
-     <main className="map-page" style={{ backgroundImage: `url(${bgImage})` }}>
+     <main className="map-page" style={{ backgroundImage: `url(${bgImage})`, color: textColor, }}>
       <h1 className="map-page__title">¿Dónde Estamos?</h1>
 
       <div className="map-page__info">
@@ -60,6 +62,9 @@ export default function MapPage() {
             target="_blank"
             rel="noopener noreferrer"
             className="map-page__link"
+             style={{ color: linkColor }}
+            onMouseEnter={(e) => (e.target.style.color = linkHoverColor)}
+            onMouseLeave={(e) => (e.target.style.color = linkColor)}
           >
             {p.nombre}
           </a>

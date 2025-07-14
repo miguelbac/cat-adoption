@@ -1,20 +1,15 @@
 .map-page {
   width: 100%;
   min-height: 100vh;
-  background-image: url(${bgImage});
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
   padding: 3rem 1rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #000;
 }
 
 .map-page__title {
@@ -63,19 +58,11 @@
   padding: 0 1rem;
 }
 
-.map-page__protectora-link {
-  color: #0066cc;
+.map-page__link {
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.3s;
 }
-
-.map-page__protectora-link:hover,
-.map-page__protectora-link:focus {
-  color: #004999;
-  text-decoration: underline;
-}
-
 
 @media (max-width: 768px) {
   .map-page {
@@ -90,7 +77,7 @@
     height: 300px;
   }
 
-  .map-page__protectora-link {
+  .map-page__link {
     font-size: 0.95rem;
   }
 }
@@ -104,7 +91,7 @@
     height: 250px;
   }
 
-  .map-page__protectora-link {
+  .map-page__link {
     font-size: 0.9rem;
   }
 }
