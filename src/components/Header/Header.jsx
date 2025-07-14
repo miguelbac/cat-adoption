@@ -37,10 +37,10 @@ const Header = () => {
           </button>
           <button
             onClick={toggleTheme}
-            className={styles['header__theme-button']}
+            className={styles['header__theme-icon']}
             aria-label={`Cambiar a modo ${theme === 'light' ? 'oscuro' : 'claro'}`}
           >
-            {theme === 'light' ? 'Modo oscuro' : 'Modo claro'}
+            {theme === 'light' ? '🌙' : '☀️'}
           </button>
         </div>
       </header>
