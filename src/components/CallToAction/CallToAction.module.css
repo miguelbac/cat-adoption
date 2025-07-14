@@ -39,6 +39,7 @@
 .cta__heading {
   position: relative; /* Necesario para que el z-index funcione */
   z-index: 2; /* Pone el texto por encima del rasguño */
+  color: #000; /* Color de texto por defecto negro */
 }
 
 .cta__text {
@@ -54,6 +55,21 @@
   font-family: 'Red Hat Text', sans-serif;
 }
 
+/* Modo oscuro */
+.dark {
+  background-color: transparent; /* Sin fondo, completamente transparente */
+  color: #ffffff; /* Texto claro para legibilidad */
+}
+
+.dark .cta__text-box {
+  background-color: transparent; /* Sin fondo */
+  color: #ffffff;
+}
+
+.dark .cta__text,
+.dark .cta__heading {
+  color: #ffffff; /* Mantén el color del texto para que se vea */
+}
 
 @media (max-width: 768px) {
   .cta {
