@@ -5,6 +5,7 @@ import menuButton from '../../assets/hmenu.png';
 import closeIcon from '../../assets/cerrar.png';
 import styles from './Header.module.css';
 import { useTheme } from '../../hooks/useTheme';
+import { BsSunFill, BsMoonStarsFill } from 'react-icons/bs';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,7 +41,7 @@ const Header = () => {
             className={styles['header__theme-icon']}
             aria-label={`Cambiar a modo ${theme === 'light' ? 'oscuro' : 'claro'}`}
           >
-            {theme === 'light' ? '🌙' : '☀️'}
+            {theme === 'light' ? <BsMoonStarsFill /> : <BsSunFill />}
           </button>
         </div>
       </header>
