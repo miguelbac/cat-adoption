@@ -1,10 +1,15 @@
 import React from "react";
 import "./AdoptPage.css";
 import wipCat from "../../assets/wip-cat.png";
-import bgImage from "../../assets/background.png";
+import bgLight from "../../assets/background.png";
+import bgDark from "../../assets/background-black.png";
 import CatSlider from "../../components/CatSlider/CatSlider";
+import { useTheme } from "../../hooks/useTheme"; // 👈 Hook del contexto
 
 function AdoptPage() {
+  const { theme } = useTheme(); // 👈 Accede al tema actual
+  const bgImage = theme === "dark" ? bgDark : bgLight; // 👈 Cambia imagen según tema
+  
   return (
     <div className="adopt-page" style={{ backgroundImage: `url(${bgImage})` }}>
       <div className="content">

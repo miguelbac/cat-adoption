@@ -1,6 +1,6 @@
 /* CatCard.css */
 .cat-card {
-  background: white;
+  background: var(--card-bg);
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -14,6 +14,7 @@
   position: relative;
   min-height: 280px;
   flex-shrink: 0;
+  color: var(--card-text);
 }
 
 .cat-card img {
@@ -27,12 +28,12 @@
 .cat-card h2 {
   margin: 10px 0 5px 0;
   font-size: 18px;
-  color: #333;
+  color: var(--card-text);
   text-align: center;
   font-weight: 600;
 }
 
-/* Estilos para card central */
+/* Card central */
 .cat-card.center {
   transform: scale(1.1);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
@@ -46,26 +47,19 @@
 
 .cat-card.center h2 {
   font-size: 20px;
-  color: #2c3e50;
+  color: var(--card-title);
 }
 
-/* Estilos para cards laterales */
+/* Cards laterales */
 .cat-card.side {
   transform: scale(0.85);
   z-index: 5;
 }
 
-
-
 .cat-card.side h2 {
   font-size: 16px;
-  color: #666;
+  color: var(--card-subtitle);
 }
-
-/* Animaciones adicionales */
-
-
-
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -73,15 +67,15 @@
     width: 150px;
     height: 150px;
   }
-  
+
   .cat-card h2 {
     font-size: 16px;
   }
-  
+
   .cat-card.center h2 {
     font-size: 18px;
   }
-  
+
   .cat-card.side h2 {
     font-size: 14px;
   }

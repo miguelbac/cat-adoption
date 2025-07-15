@@ -1,31 +1,105 @@
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@500&display=swap');
-/* Footer y Header */
 
+/* Variables globales */
 :root {
-  font-family:'Red Hat Text', sans-serif;
+  font-family: 'Red Hat Text', sans-serif;
   line-height: 1.5;
   font-weight: 400;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Tema claro por defecto */
+  --color-text: #213547;
+  --color-background: #ffffff;
+  --color-link-hover: #747bff;
+  --button-bg: #f9f9f9;
+  --button-border-hover: #646cff;
+
+  /* Footer claro */
+  --color-footer-background: #eeddd3;
+  --color-footer-text: #000000;
+  --color-footer-link-hover: blue;
+
+  /* CatSlider y tarjetas */
+  --card-bg: #ffffff;
+  --card-text: #000000;
+  --card-title: #222222;
+  --card-subtitle: #555555;
+  --arrow-bg: #f0f0f0;
+  --arrow-border: #cccccc;
+  --arrow-text: #000000;
+  --indicator-bg: #dddddd;
+  --indicator-hover: #aaaaaa;
+  --info-bg: rgba(255, 255, 255, 0.6);
+  --info-border: #ccc;
+  --loading-color: #333;
 }
 
-/* Eliminar el color de fondo global para que se vea la imagen */
+/* Tema oscuro */
+[data-theme="dark"] {
+  --color-text: rgba(247, 244, 244, 0.87);
+  --color-background: #242424;
+  --color-link-hover: #535bf2;
+  --button-bg: #1a1a1a;
+  --button-border-hover: #646cff;
+
+  /* Footer oscuro */
+  --color-footer-background: #1e1e1e;
+  --color-footer-text: #dddddd;
+  --color-footer-link-hover: lightblue;
+
+  /* CatSlider y tarjetas modo oscuro */
+  --card-bg: #1e1e1e;
+  --card-text: #f0f0f0;
+  --card-title: #ffffff;
+  --card-subtitle: #bbbbbb;
+  --arrow-bg: #333333;
+  --arrow-border: #444444;
+  --arrow-text: #f0f0f0;
+  --indicator-bg: #555555;
+  --indicator-hover: #888888;
+  --info-bg: rgba(30, 30, 30, 0.6);
+  --info-border: #444;
+  --loading-color: #ccc;
+}
+
+/* Estilo global del body */
 body {
   margin: 0;
-  display: flex;
-  /*place-items: center; */
   min-width: 320px;
   min-height: 100vh;
   overflow-x: hidden;
-  display: flex; /*modificado para Layout responsive*/
-  flex-direction: column; /*modificado Layout responsive*/
+  display: flex;
+  flex-direction: column;
+
+  font-family: var(--font-family, 'Red Hat Text', sans-serif);
+  line-height: var(--line-height, 1.5);
+  font-weight: var(--font-weight, 400);
+  font-synthesis: var(--font-synthesis, none);
+  text-rendering: var(--text-rendering, optimizeLegibility);
+  -webkit-font-smoothing: var(--webkit-font-smoothing, antialiased);
+  -moz-osx-font-smoothing: var(--moz-osx-font-smoothing, grayscale);
+
+  color: var(--color-text);
+  background-color: var(--color-background);
 }
 
+/* Otros estilos */
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+a {
+  color: inherit;
+  font-weight: 500;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: var(--color-link-hover);
 }
 
 button {
@@ -35,27 +109,28 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--button-bg);
   cursor: pointer;
   transition: border-color 0.25s;
+  color: var(--color-text);
 }
+
 button:hover {
-  border-color: #646cff;
+  border-color: var(--button-border-hover);
 }
+
 button:focus,
 button:focus-visible {
   outline: none;
 }
 
 @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+  /* no necesario por uso de variables */
+}
+
+/* Para Layout responsive */
+#root {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
