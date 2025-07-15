@@ -3,10 +3,12 @@ import { toast } from 'react-toastify'; // Importar toast
 import CatCard from '../../components/CatCard/CatCard';
 import { getFavorites } from '../../services/favouritesService';
 import './FavPage.css';
-import bgImage from "../../assets/background.png";
+import bgImageLight from '../../assets/background.png';
+import bgImageDark from '../../assets/background-black.png'
 
 function FavPage() {
   const [favorites, setFavorites] = useState([]);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const updateFavorites = () => {
     const favs = getFavorites();
@@ -21,8 +23,24 @@ function FavPage() {
       if (e.key === "catFavorites") updateFavorites();
     };
     window.addEventListener("storage", handleStorage);
-    return () => window.removeEventListener("storage", handleStorage);
-  }, []);
+
+    // Detectar tema actual desde el atributo en <html>
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+    setIsDarkMode(currentTheme === "dark");
+
+    // Observar cambios en el atributo data-theme
+    const observer = new MutationObserver(() => {
+      const updatedTheme = document.documentElement.getAttribute("data-theme");
+      setIsDarkMode(updatedTheme === "dark");
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+     //  Correcto: cleanup dentro del return
+  return () => {
+    window.removeEventListener("storage", handleStorage);
+    observer.disconnect();
+  };
+}, []);
 
   const handleFavoriteToggle = () => {
     updateFavorites(); // Se llama cuando se elimina un favorito
@@ -44,7 +62,8 @@ function FavPage() {
   };
 
   return (
-    <div className="fav-page" style={{ backgroundImage: `url(${bgImage})` }}>
+    <div className="fav-page" style={{ backgroundImage: `url(${isDarkMode ? bgImageDark : bgImageLight})` }}
+    >
       <div className="fav-header">
         <h1>Mis gatos favoritos</h1>
         {favorites.length > 0 && (
