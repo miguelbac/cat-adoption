@@ -29,19 +29,35 @@ export default function CatSlider() {
   }, []);
 
   useEffect(() => {
+    let isMounted = true;
+    
     async function loadCats() {
       try {
         setIsLoading(true);
         const catList = await fetchCats(15);
-        setCats(catList);
-        console.log('Gatos cargados:', catList);
+        
+        // Solo actualizar el estado si el componente sigue montado
+        if (isMounted) {
+          setCats(catList);
+          console.log('Gatos cargados:', catList);
+        }
       } catch (error) {
-        console.error('Error cargando gatos:', error);
+        if (isMounted) {
+          console.error('Error cargando gatos:', error);
+        }
       } finally {
-        setIsLoading(false);
+        if (isMounted) {
+          setIsLoading(false);
+        }
       }
     }
+    
     loadCats();
+    
+    // Cleanup function
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   const next = () => {
@@ -164,11 +180,16 @@ export default function CatSlider() {
 
   const getCard = (offset) => {
     if (cats.length === 0) return null;
-    
+
     const index = (centerIndex + offset + cats.length) % cats.length;
     const cat = cats[index];
     const size = offset === 0 ? "center" : "side";
-    
+
+    if (!cat || !cat.id || !cat.image || !cat.name) {
+      console.warn("Gato inválido en índice:", index, cat);
+      return null;
+    }
+
     return (
       <CatCard 
         key={`${cat.id}-${offset}`}
@@ -176,6 +197,7 @@ export default function CatSlider() {
         name={cat.name}
         size={size}
         onClick={() => goToSlide(index)}
+        catData={cat}
       />
     );
   };
