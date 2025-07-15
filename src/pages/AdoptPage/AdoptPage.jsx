@@ -3,21 +3,20 @@ import "./AdoptPage.css";
 import wipCat from "../../assets/wip-cat.png";
 import bgLight from "../../assets/background.png";
 import bgDark from "../../assets/background-black.png";
-import CatSlider from "../../components/CatSlider/CatSlider";
-import { useTheme } from "../../hooks/useTheme"; // 👈 Hook del contexto
+import { useTheme } from "../../hooks/useTheme";
+import { useTranslation } from "react-i18next";
 
 function AdoptPage() {
-  const { theme } = useTheme(); // 👈 Accede al tema actual
-  const bgImage = theme === "dark" ? bgDark : bgLight; // 👈 Cambia imagen según tema
+  const { theme } = useTheme();
+  const { t } = useTranslation();
+  const bgImage = theme === "dark" ? bgDark : bgLight;
   
   return (
     <div className="adopt-page" style={{ backgroundImage: `url(${bgImage})` }}>
       <div className="content">
-        <p>¡El gato trabaja todo lo rápido que puede!</p>
-        <p>
-          La página de adopción estará lista tan pronto como nos sea posible.
-        </p>
-        <img src={wipCat} alt="Cato currela" />
+        <p>{t('adoptPage_wip_1')}</p>
+        <p>{t('adoptPage_wip_2')}</p>
+        <img src={wipCat} alt={t('adoptPage_alt_wip_cat')} />
       </div>
     </div>
   );

@@ -1,7 +1,11 @@
 import React from "react";
 import "./CatCard.css";
 import Btn from "../Btn/Btn";
+import { useTranslation } from "react-i18next";
+
 function CatCard({ image, name, size = "side", onClick }) {
+  const { t } = useTranslation();
+
   const handleClick = () => {
     if (size === "side" && onClick) {
       onClick();
@@ -12,7 +16,7 @@ function CatCard({ image, name, size = "side", onClick }) {
     <div className={`cat-card ${size}`} onClick={handleClick}>
       <img
         src={image}
-        alt={`Foto de ${name}`}
+        alt={t('catCard_alt', { name: name })}
         onError={(e) => {
           e.target.src = "https://placekitten.com/200/200";
         }}
@@ -20,7 +24,7 @@ function CatCard({ image, name, size = "side", onClick }) {
       <h2>{name}</h2>
       {size === "center" && (
         <Btn
-          label="Adóptame"
+          label={t('catCard_adoptMe')}
           to="/adopt"
           bgcolor="#91eda7"
           textcolor="#ffffff"
