@@ -1,11 +1,22 @@
 const API_KEY = 'live_gRqlPV9KGHAT7RLKkmVcPfhpRUwVJHHhhFqRoEnukJiAjVE5DCdPuFUesNm31HgI';
 const BASE_URL = 'https://api.thecatapi.com/v1';
 
-const catNames = [
-  'Whiskers', 'Mittens', 'Shadow', 'Luna', 'Simba', 'Nala', 'Felix', 'Garfield',
+const catNames = [  'Whiskers', 'Mittens', 'Shadow', 'Luna', 'Simba', 'Nala', 'Felix', 'Garfield',
   'Tigger', 'Smokey', 'Oreo', 'Mochi', 'Chloe', 'Bella', 'Max', 'Charlie',
   'Lucy', 'Molly', 'Buddy', 'Daisy', 'Rocky', 'Sadie', 'Tucker', 'Zoey',
-  'Coco', 'Penny', 'Lola', 'Ruby', 'Lily', 'Rosie'
+  'Coco', 'Penny', 'Lola', 'Ruby', 'Lily', 'Rosie',
+  'Pelusa', 'Bigotes', 'Manchitas', 'Copito', 'Chispa', 'Michu', 'Nube', 'Galleta',
+  'Calcetines', 'Ronroneo', 'Trueno', 'Canela', 'Mota', 'Tigre', 'Blanquito',
+  'Negri', 'Pantera', 'Chispa', 'Bolita', 'Mimi', 'Sol', 'Luz', 'Bruma',
+  'Niebla', 'Zarpas', 'Rayas', 'Gato', 'Minino', 'Gordi', 'Ronnie',
+  'Tom', 'Jerry', 'Peanut', 'Pumpkin', 'Midnight', 'Snowball', 'Salem', 'Boo',
+  'Pepper', 'Stormy', 'Ash', 'Bandit', 'Boots', 'Gizmo', 'Cinnamon', 'Maple',
+  'Olive', 'Jasper', 'Oscar', 'Harley', 'Theo', 'Sam', 'Freya', 'Willow',
+  'Sasha', 'Cleo', 'Toby', 'Milo', 'Leo', 'Binx',
+  'Churro', 'Taco', 'Nacho', 'Croqueta', 'Albóndiga', 'Quesito', 'Caramelo',
+  'Bombón', 'Chocolate', 'Miel', 'Bizcocho', 'Panqueque', 'Galletita', 'Flan',
+  'Pelusín', 'Zanahorio', 'Mostachón', 'Babú', 'Totoro', 'Ninfa', 'Bola de Nieve',
+  'Chisguete', 'Ronroncio', 'Don Gato', 'Doña Michi'
 ];
 
 function getRandomName() {

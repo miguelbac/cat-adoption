@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 import "./CatCard.css";
 import Btn from "../Btn/Btn";
 import unfavIcon from "../../assets/unfav.png";
@@ -6,16 +7,16 @@ import favIcon from "../../assets/fav.png";
 import { isFavorite, toggleFavorite } from "../../services/favouritesService";
 
 function CatCard({ image, name, size = "side", onClick, catData, onToggleFavorite }) {
+  const [isFav, setIsFav] = useState(false);
+
+  useEffect(() => {
+    setIsFav(isFavorite(catData?.id));
+  }, [catData]);
+
   if (!catData || !catData.id || !image || !name) {
     console.warn("CatCard: Datos inválidos", catData);
     return null;
   }
-
-  const [isFav, setIsFav] = useState(false);
-
-  useEffect(() => {
-    setIsFav(isFavorite(catData.id));
-  }, [catData]);
 
   const handleClick = () => {
     if (size === "side" && onClick) {
@@ -42,6 +43,33 @@ function CatCard({ image, name, size = "side", onClick, catData, onToggleFavorit
 
     const newFavState = toggleFavorite(catToToggle);
     setIsFav(newFavState);
+
+    // Mostrar notificación según la acción
+    if (newFavState) {
+      // Gato agregado a favoritos
+      toast.success(`¡${name} ha sido añadido a favoritos! 🐾`, {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    } else {
+      // Gato eliminado de favoritos
+      toast.info(`${name} ha sido eliminado de favoritos ☹`, {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
 
     // 💡 Notificar al componente padre si hay un callback
     if (onToggleFavorite) {
