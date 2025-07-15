@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './Footer.module.css';
 import { useTranslation } from 'react-i18next';
-
 import locationIcon from '../../assets/maps.png';
 import youtubeIcon from '../../assets/Youtube.png';
 import instagramIcon from '../../assets/Instagram.png';
@@ -9,7 +8,12 @@ import facebookIcon from '../../assets/Facebook.png';
 import twitterIcon from '../../assets/Twitter.png';
 import tiktokIcon from '../../assets/Tiktok.png';
 
-const socialLinks = [
+
+
+const Footer = () => {
+  const { t } = useTranslation();
+
+  const socialLinks = [
   { id: 'location', href: 'https://www.google.com/maps/search/?api=1&query=43.5456,-5.6615', icon: locationIcon, label: 'Ubicación' },
   { id: 'youtube', href: '#', icon: youtubeIcon, label: 'YouTube' },
   { id: 'instagram', href: '#', icon: instagramIcon, label: 'Instagram' },
@@ -17,9 +21,6 @@ const socialLinks = [
   { id: 'twitter', href: '#', icon: twitterIcon, label: 'Twitter' },
   { id: 'tiktok', href: '#', icon: tiktokIcon, label: 'TikTok' },
 ];
-
-const Footer = () => {
-  const { t } = useTranslation();
   return (
     <footer className={styles.footer}>
       <div className={styles.footer__legal}>
