@@ -2,7 +2,7 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import CallToAction from "../CallToAction/CallToAction"; //¿Temporal?
+import CallToAction from "../CallToAction/CallToAction"; 
 import styles from "./Layout.module.css";
 
 const Layout = () => {

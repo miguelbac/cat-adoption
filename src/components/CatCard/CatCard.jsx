@@ -2,11 +2,15 @@ import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import "./CatCard.css";
 import Btn from "../Btn/Btn";
+import { useTranslation } from "react-i18next";
+
 import unfavIcon from "../../assets/unfav.png";
 import favIcon from "../../assets/fav.png";
 import { isFavorite, toggleFavorite } from "../../services/favouritesService";
 
 function CatCard({ image, name, size = "side", onClick, catData, onToggleFavorite }) {
+  const { t } = useTranslation();
+
   const [isFav, setIsFav] = useState(false);
 
   useEffect(() => {
@@ -79,26 +83,17 @@ function CatCard({ image, name, size = "side", onClick, catData, onToggleFavorit
 
   return (
     <div className={`cat-card ${size}`} onClick={handleClick}>
-      <div className="image-wrapper">
-        <img
-          src={image}
-          alt={`Foto de ${name}`}
-          onError={(e) => {
-            e.target.src = "https://placekitten.com/200/200";
-          }}
-        />
-        <div className="favorite-icon" onClick={handleFavoriteClick}>
-          <img
-            src={isFav ? favIcon : unfavIcon}
-            alt={isFav ? "Favorito" : "No favorito"}
-            className={`heart-icon ${isFav ? "favorite" : ""}`}
-          />
-        </div>
-      </div>
+      <img
+        src={image}
+        alt={t('catCard_alt', { name: name })}
+        onError={(e) => {
+          e.target.src = "https://placekitten.com/200/200";
+        }}
+      />
       <h2>{name}</h2>
       {size === "center" && (
         <Btn
-          label="Adóptame"
+          label={t('catCard_adoptMe')}
           to="/adopt"
           bgcolor="#91eda7"
           textcolor="#ffffff"

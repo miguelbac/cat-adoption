@@ -6,8 +6,11 @@ import closeIcon from '../../assets/cerrar.png';
 import styles from './Header.module.css';
 import { useTheme } from '../../hooks/useTheme';
 import { BsMoonStarsFill } from 'react-icons/bs';
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Header = () => {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
@@ -21,7 +24,7 @@ const Header = () => {
         </div>
 
         <div className={styles['header__section-center']}>
-          <h1 className={styles.header__title}>ADOPTA UN MICHI</h1>
+          <h1 className={styles.header__title}>{t('headerTitle')}</h1>
         </div>
 
         <div className={styles['header__section-right']}>
@@ -49,9 +52,8 @@ const Header = () => {
       <nav className={`${styles['nav-menu']} ${isOpen ? styles['nav-menu--open'] : ''}`}>
         <Link to="/" onClick={() => setIsOpen(false)} className={styles['nav-menu__link']}>Inicio</Link>
         <Link to="/adopt" onClick={() => setIsOpen(false)} className={styles['nav-menu__link']}>Adoptar</Link>
-        <Link to="/map" onClick={() => setIsOpen(false)} className={styles['nav-menu__link']}>Mapa</Link>
-        <Link to="/fav" onClick={() => setIsOpen(false)} className={styles['nav-menu__link']}>Favoritos</Link>
-
+        <Link to="/mapa" onClick={() => setIsOpen(false)} className={styles['nav-menu__link']}>Mapa</Link>
+        <LanguageSwitcher />
       </nav>
     </>
   );
