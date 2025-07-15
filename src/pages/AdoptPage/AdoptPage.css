@@ -2,11 +2,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(${bgImage});
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  min-height: 100vh; /* 👈 Esto eliminará los bordes blancos */
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .content {
@@ -16,18 +19,18 @@
   border-radius: 1rem;
 }
 
-/* .content p {
+.content p {
   font-weight: 200;
   font-size: 3rem;
   color: rgb(63, 63, 63);
   padding: 0;
   margin: 0;
-} */
+}
 
-/* .content img {
+.content img {
   max-width: 100%;
   height: 30rem;
-} */
+}
 
 @media (max-width: 600px) {
   .adopt-page .content p {
