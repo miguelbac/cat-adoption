@@ -3,8 +3,8 @@
 .footer {
   width: 100%;
   box-sizing: border-box;
-  background-color: #eeddd3;
-  color: #000;
+  background-color: var(--color-footer-background);
+  color: var(--color-footer-text);
   padding: 1rem 3rem;
   display: flex;
   justify-content: space-between;
@@ -19,7 +19,7 @@
 }
 
 .footer__link {
-  color: #000000;
+  color: var(--color-footer-text);
   text-decoration: none;
   font-size: 1.2rem;
   font-family: 'Red Hat Text', sans-serif;
@@ -27,7 +27,7 @@
 }
 
 .footer__link:hover {
-  color: blue;
+  color: var(--color-footer-link-hover);
 }
 
 .footer__social {
@@ -57,17 +57,17 @@
     flex-direction: column;
     gap: 1rem;
   }
-  
+
   .footer__legal {
     flex-direction: column;
     gap: 0.5rem;
   }
-  
+
   .footer__social-icon {
     width: 20px;
     height: 20px;
   }
-  
+
   .footer__link {
     font-size: 0.6rem;
   }
@@ -77,7 +77,7 @@
   .footer__legal {
     gap: 0.3rem;
   }
-  
+
   .footer__social-link {
     margin-left: 1rem;
   }

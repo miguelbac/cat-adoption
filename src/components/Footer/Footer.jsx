@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Footer.module.css';
+import { useTranslation } from 'react-i18next';
 
 import locationIcon from '../../assets/maps.png';
 import youtubeIcon from '../../assets/Youtube.png';
@@ -18,12 +19,13 @@ const socialLinks = [
 ];
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <footer className={styles.footer}>
       <div className={styles.footer__legal}>
-        <a href="#" className={styles.footer__link}>Contacto</a>
-        <a href="#" className={styles.footer__link}>Política de privacidad</a>
-        <a href="#" className={styles.footer__link}>Aviso legal</a>
+        <a href="#" className={styles.footer__link}>{t('footerContact')}</a>
+        <a href="#" className={styles.footer__link}>{t('footerPrivacy')}</a>
+        <a href="#" className={styles.footer__link}>{t('footerLegal')}</a>
       </div>
 
       <div className={styles.footer__social}>

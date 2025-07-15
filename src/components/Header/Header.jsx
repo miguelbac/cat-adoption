@@ -4,9 +4,12 @@ import logo from '../../assets/logo.png';
 import menuButton from '../../assets/hmenu.png';
 import closeIcon from '../../assets/cerrar.png';
 import styles from './Header.module.css';
+import { useTheme } from '../../hooks/useTheme';
+import { BsMoonStarsFill } from 'react-icons/bs';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <>
@@ -25,12 +28,20 @@ const Header = () => {
           <button
             className={styles['header__menu-button']}
             onClick={() => setIsOpen(!isOpen)}
+            aria-label="Abrir menú"
           >
             <img
               src={isOpen ? closeIcon : menuButton}
               alt="Icono del menú"
               className={styles.header__icon}
             />
+          </button>
+          <button
+            onClick={toggleTheme}
+            className={styles['header__theme-icon']}
+            aria-label={`Cambiar a modo ${theme === 'light' ? 'oscuro' : 'claro'}`}
+          >
+            {theme === 'light' ? <BsMoonStarsFill /> : '🌞'}
           </button>
         </div>
       </header>

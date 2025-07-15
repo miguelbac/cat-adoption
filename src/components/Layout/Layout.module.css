@@ -1,9 +1,14 @@
 .app-layout {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background-color: var(--color-background); /* 👈 Fondo con variable */
+  color: var(--color-text); /* 👈 Texto con variable */
 }
 
 .app-layout__main {
-    flex-grow: 1;
+  flex-grow: 1;
+  padding: 2rem; /* opcional */
+  background-color: var(--color-background); /* 👈 Asegúrate aquí también */
+  color: var(--color-text); /* 👈 Asegúrate aquí también */
 }

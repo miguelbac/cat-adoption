@@ -44,3 +44,12 @@
   grid-column-end: 3;
   justify-self: center;
 }
+
+@media screen and (max-width: 768px) {
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

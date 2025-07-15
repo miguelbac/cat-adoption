@@ -9,7 +9,7 @@
   margin: 0;
   padding: 0;
   font-size: 2.5rem;
-  color: #2c3e50;
+  color: var(--text-primary);
   font-weight: 700;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   animation: fadeInDown 0.6s ease-out;
@@ -44,7 +44,6 @@
   transition: transform 0.3s ease-out;
 }
 
-/* Prevenir selección de imágenes y texto */
 .card-track,
 .card-track * {
   user-select: none;
@@ -64,7 +63,6 @@
   -user-drag: none;
 }
 
-/* Animaciones mejoradas */
 @keyframes fadeInDown {
   from {
     opacity: 0;
@@ -80,12 +78,12 @@
 .arrow {
   width: 48px;
   height: 48px;
-  background: white;
-  border: 2px solid #ccc;
+  background: var(--arrow-bg);
+  border: 2px solid var(--arrow-border);
   border-radius: 50%;
   font-size: 28px;
   font-weight: bold;
-  color: #555;
+  color: var(--arrow-text);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -131,7 +129,7 @@
 }
 
 .arrow:disabled:hover {
-  background: white;
+  background: var(--arrow-bg);
   transform: translateY(-50%) scale(0.9);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
@@ -148,7 +146,7 @@
   height: 10px;
   border-radius: 50%;
   border: none;
-  background: #ddd;
+  background: var(--indicator-bg);
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -159,7 +157,7 @@
 }
 
 .indicator:hover {
-  background: #bbb;
+  background: var(--indicator-hover);
   transform: scale(1.05);
 }
 
@@ -171,12 +169,12 @@
 /* Info inferior */
 .slider-info {
   padding: 15px;
-  background: rgba(102, 126, 234, 0.1);
+  background: var(--info-bg);
   border-radius: 15px;
-  color: #2c3e50;
+  color: var(--text-primary);
   font-weight: 500;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(102, 126, 234, 0.2);
+  border: 1px solid var(--info-border);
 }
 
 .slider-info p {
@@ -191,7 +189,7 @@
   align-items: center;
   height: 300px;
   font-size: 18px;
-  color: #666;
+  color: var(--loading-color);
 }
 
 .loading::after {
@@ -257,7 +255,7 @@
 
   .card-track {
     gap: 20px;
-    cursor: default; /* Quitar cursor grab en móviles */
+    cursor: default;
   }
 
   .card-track.dragging {
@@ -268,14 +266,6 @@
     width: 40px;
     height: 40px;
     font-size: 20px;
-  }
-
-  .arrow.left {
-    left: 5px;
-  }
-
-  .arrow.right {
-    right: 5px;
   }
 
   .indicator {
@@ -314,14 +304,6 @@
     font-size: 18px;
   }
 
-  .arrow.left {
-    left: 2px;
-  }
-
-  .arrow.right {
-    right: 2px;
-  }
-
   .slider-indicators {
     gap: 6px;
   }
@@ -337,31 +319,25 @@
   }
 }
 
-/* Mejoras adicionales para experiencia móvil */
 @media (hover: none) and (pointer: coarse) {
   .card-track {
     touch-action: pan-x;
   }
-  
+
   .arrow:hover {
-    background: white;
-    color: #555;
+    background: var(--arrow-bg);
+    color: var(--arrow-text);
     transform: translateY(-50%) scale(1);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
-  
+
   .indicator:hover {
-    background: #ddd;
+    background: var(--indicator-bg);
     transform: scale(1);
-  }
-  
-  .indicator.active:hover {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    transform: scale(1.2);
   }
 }
 
-/* Animaciones de entrada para las tarjetas */
+/* Animaciones de entrada */
 .card-track > * {
   animation: slideIn 0.4s ease-out;
 }

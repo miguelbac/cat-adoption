@@ -2,10 +2,14 @@ import React from 'react';
 import styles from './CallToAction.module.css';
 import catImage from '../../assets/cat-crew.png';
 import scratchImage from '../../assets/scratch.png';
+import { useTheme } from '../../hooks/useTheme';
 
 const CallToAction = () => {
+  const { theme } = useTheme();
+  const themeClass = theme === 'dark' ? styles.dark : '';
+
   return (
-     <section className={styles.cta}>
+     <section className={`${styles.cta} ${themeClass}`}>
       <img
         src={catImage}
         alt="Gatitos de la protectora"
