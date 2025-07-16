@@ -175,6 +175,7 @@ export default function CatSlider() {
         name={cat.name}
         size={size}
         onClick={() => goToSlide(index)}
+        catData={cat}
       />
     );
   };
