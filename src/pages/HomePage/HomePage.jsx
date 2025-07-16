@@ -6,7 +6,6 @@ import CatSlider from "../../components/CatSlider/CatSlider";
 import CallToAction from "../../components/CallToAction/CallToAction";
 import { useTheme } from "../../hooks/useTheme";
 import FormUserData from "../../components/FormUserData/FormUserData";
-// import Form from "../../components/Form/Form";
 
 function HomePage() {
   const { theme } = useTheme();
@@ -18,7 +17,6 @@ function HomePage() {
         <CatSlider />
         <CallToAction />
         <FormUserData />
-        {/* <Form /> */}
       </div>
     </div>
   );
