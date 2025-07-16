@@ -1,16 +1,15 @@
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
-import './App.css';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import MapPage from './pages/MapPage/MapPage';
-import HomePage from './pages/HomePage/HomePage';
-import AdoptPage from './pages/AdoptPage/AdoptPage';
-import FavPage from './pages/FavPage/FavPage';
-import Layout from './components/Layout/Layout';
-import Test from './components/Test/Test';
-
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import "./App.css";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import MapPage from "./pages/MapPage/MapPage";
+import HomePage from "./pages/HomePage/HomePage";
+import AdoptPage from "./pages/AdoptPage/AdoptPage";
+import FavPage from "./pages/FavPage/FavPage";
+import Layout from "./components/Layout/Layout";
+import Test from "./components/Test/Test";
 function App() {
   return (
     <>
@@ -23,7 +22,7 @@ function App() {
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-      
+
       {/* ToastContainer para las notificaciones */}
       <ToastContainer
         position="bottom-right"
