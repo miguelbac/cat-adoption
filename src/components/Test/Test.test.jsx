@@ -11,7 +11,7 @@ test('cambia la imagen y el texto al hacer clic en el botón', () => {
 
   // Estado inicial
   expect(statusText).toBeInTheDocument();
-  expect(image.src).toContain('hmenu.png');
+  expect(image.src).toContain('test-file-stub');
 
   // Haz clic en el botón
   fireEvent.click(button);
