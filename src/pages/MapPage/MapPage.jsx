@@ -6,47 +6,46 @@ import { protectoras } from '../../services/mapService';
 import bgLight from "../../assets/background.png";
 import bgDark from "../../assets/background-black.png";
 import { useTheme } from "../../hooks/useTheme";
+import { useTranslation } from 'react-i18next';
 
 export default function MapPage() {
   const { theme } = useTheme();
+  const { t } = useTranslation(); // Ya teníamos esto, ahora lo usamos más
   const bgImage = theme === "dark" ? bgDark : bgLight;
   const textColor = theme === "dark" ? "#eee" : "#000";
   const linkColor = theme === "dark" ? "#9cf" : "#0066cc";
   const linkHoverColor = theme === "dark" ? "#6af" : "#004999";
 
   useEffect(() => {
-    // Esperar a que el elemento con id 'map' exista en el DOM
     const mapContainer = document.getElementById('map');
     if (!mapContainer) return;
 
-    // Crear mapa centrado en Gijón
     const map = L.map(mapContainer).setView([43.5456, -5.6615], 13);
 
-    // Cargar capa base OpenStreetMap
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors',
+      attribution: '© OpenStreetMap contributors',
     }).addTo(map);
 
-    // Añadir marcadores de protectoras
     protectoras.forEach((p) => {
       L.marker([p.lat, p.lng])
         .addTo(map)
-        .bindPopup(`<b>${p.nombre}</b>`);
+        // 👇 CAMBIO 1: Usamos la función t() con una clave dinámica
+        .bindPopup(`<b>${t(`shelter_name_${p.id}`)}</b>`);
     });
 
-    // Limpiar al desmontar
     return () => {
       map.remove();
     };
-  }, []);
+    // Añadimos 't' a las dependencias del hook porque se usa dentro de él
+  }, [t]); 
 
   return (
-     <main className="map-page" style={{ backgroundImage: `url(${bgImage})`, color: textColor, }}>
-      <h1 className="map-page__title">¿Dónde Estamos?</h1>
+    <main className="map-page" style={{ backgroundImage: `url(${bgImage})`, color: textColor, }}>
+      <h1 className="map-page__title">{t('mapPage_title')}</h1>
 
       <div className="map-page__info">
         <div className="map-page__line">
-          <span className="map-page__address">Avenida Gatuna Nº13</span>
+          <span className="map-page__address">{t('mapPage_address')}</span>
           <span className="map-page__phone">+34645967492</span>
         </div>
         <div className="map-page__email">adoptaunmichi@miaumail.com</div>
@@ -62,11 +61,12 @@ export default function MapPage() {
             target="_blank"
             rel="noopener noreferrer"
             className="map-page__link"
-             style={{ color: linkColor }}
+            style={{ color: linkColor }}
             onMouseEnter={(e) => (e.target.style.color = linkHoverColor)}
             onMouseLeave={(e) => (e.target.style.color = linkColor)}
           >
-            {p.nombre}
+            {/* 👇 CAMBIO 2: Usamos la misma técnica aquí */}
+            {t(`shelter_name_${p.id}`)}
           </a>
         ))}
       </div>

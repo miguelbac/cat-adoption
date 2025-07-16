@@ -2,11 +2,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(${bgImage});
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  min-height: 100vh; /* 👈 Esto eliminará los bordes blancos */
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .content {

@@ -2,8 +2,10 @@ import React, { useEffect, useState, useRef } from "react";
 import { fetchCats } from "../../services/catService";
 import CatCard from "../CatCard/CatCard";
 import "./CatSlider.css";
+import { useTranslation } from "react-i18next";
 
 export default function CatSlider() {
+  const { t } = useTranslation();
   const [cats, setCats] = useState([]);
   const [centerIndex, setCenterIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
@@ -29,19 +31,35 @@ export default function CatSlider() {
   }, []);
 
   useEffect(() => {
+    let isMounted = true;
+    
     async function loadCats() {
       try {
         setIsLoading(true);
         const catList = await fetchCats(15);
-        setCats(catList);
-        console.log('Gatos cargados:', catList);
+        
+        // Solo actualizar el estado si el componente sigue montado
+        if (isMounted) {
+          setCats(catList);
+          console.log('Gatos cargados:', catList);
+        }
       } catch (error) {
-        console.error('Error cargando gatos:', error);
+        if (isMounted) {
+          console.error('Error cargando gatos:', error);
+        }
       } finally {
-        setIsLoading(false);
+        if (isMounted) {
+          setIsLoading(false);
+        }
       }
     }
+    
     loadCats();
+    
+    // Cleanup function
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   const next = () => {
@@ -77,7 +95,6 @@ export default function CatSlider() {
     }, 300);
   };
 
-  // Funciones para manejar el swipe
   const handleTouchStart = (e) => {
     if (!isMobile) return;
     
@@ -102,24 +119,22 @@ export default function CatSlider() {
     if (!isDragging || !isMobile) return;
     
     const diff = currentX - startX;
-    const threshold = 50; // Mínimo desplazamiento para activar swipe
+    const threshold = 50;
     
     if (Math.abs(diff) > threshold) {
       if (diff > 0) {
-        prev(); // Swipe a la derecha = anterior
+        prev();
       } else {
-        next(); // Swipe a la izquierda = siguiente
+        next();
       }
     }
     
-    // Reset
     setIsDragging(false);
     setTranslateX(0);
     setStartX(0);
     setCurrentX(0);
   };
 
-  // Funciones para mouse (desktop)
   const handleMouseDown = (e) => {
     if (isMobile) return;
     
@@ -164,11 +179,16 @@ export default function CatSlider() {
 
   const getCard = (offset) => {
     if (cats.length === 0) return null;
-    
+
     const index = (centerIndex + offset + cats.length) % cats.length;
     const cat = cats[index];
     const size = offset === 0 ? "center" : "side";
-    
+
+    if (!cat || !cat.id || !cat.image || !cat.name) {
+      console.warn("Gato inválido en índice:", index, cat);
+      return null;
+    }
+
     return (
       <CatCard 
         key={`${cat.id}-${offset}`}
@@ -176,6 +196,7 @@ export default function CatSlider() {
         name={cat.name}
         size={size}
         onClick={() => goToSlide(index)}
+        catData={cat}
       />
     );
   };
@@ -183,9 +204,9 @@ export default function CatSlider() {
   if (isLoading) {
     return (
       <div className="slider-wrapper">
-        <h1>Gatos en adopción</h1>
+        <h1>{t('slider_title')}</h1>
         <div className="loading">
-          <p>Cargando adorables gatitos...</p>
+          <p>{t('slider_loading')}</p>
         </div>
       </div>
     );
@@ -194,9 +215,9 @@ export default function CatSlider() {
   if (cats.length === 0) {
     return (
       <div className="slider-wrapper">
-        <h1>Gatos en adopción</h1>
+        <h1>{t('slider_title')}</h1>
         <div className="error">
-          <p>No se pudieron cargar los gatos. Intenta recargar la página.</p>
+          <p>{t('slider_error')}</p>
         </div>
       </div>
     );
@@ -204,13 +225,13 @@ export default function CatSlider() {
 
   return (
     <div className="slider-wrapper">
-      <h1>Gatos en adopción</h1>
+      <h1>{t('slider_title')}</h1>
       <div className="cat-slider">
         <button 
           className="arrow left" 
           onClick={prev}
           disabled={isAnimating}
-          aria-label="Anterior gato"
+          aria-label={t('slider_aria_prev')}
         >
           ‹
         </button>
@@ -239,20 +260,19 @@ export default function CatSlider() {
           className="arrow right" 
           onClick={next}
           disabled={isAnimating}
-          aria-label="Siguiente gato"
+          aria-label={t('slider_aria_next')}
         >
           ›
         </button>
       </div>
       
-      {/* Indicadores de posición */}
       <div className="slider-indicators">
         {cats.map((_, index) => (
           <button
             key={index}
             className={`indicator ${index === centerIndex ? 'active' : ''}`}
             onClick={() => goToSlide(index)}
-            aria-label={`Ir al gato ${index + 1}`}
+            aria-label={t('slider_aria_goto', { number: index + 1 })}
           />
         ))}
       </div>

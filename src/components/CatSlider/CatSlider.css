@@ -29,8 +29,7 @@
   align-items: center;
   justify-content: center;
   gap: 40px;
-  width: 100%;
-  max-width: 900px;
+  /* CAMBIO: Se eliminan width y max-width para que el carril se ajuste a su contenido */
   transition: transform 0.3s ease-out;
   cursor: grab;
   touch-action: pan-y;
@@ -283,7 +282,7 @@
 @media (max-width: 480px) {
   .slider-wrapper {
     padding: 10px;
-    margin-top: 10rem;
+    margin-top: 0.1rem;
   }
 
   .slider-wrapper h1 {
