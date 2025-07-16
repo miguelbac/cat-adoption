@@ -26,4 +26,13 @@ export default defineConfig([
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
     },
   },
+  {
+    // 👇 Esta sección aplica solo a archivos de test
+    files: ['**/*.test.{js,jsx}'],
+    languageOptions: {
+      globals: {
+        ...globals.jest, // ✅ Añade las variables globales de Jest
+      },
+    },
+  },
 ])
