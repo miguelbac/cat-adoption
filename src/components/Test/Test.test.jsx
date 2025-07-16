@@ -18,5 +18,5 @@ test('cambia la imagen y el texto al hacer clic en el botón', () => {
 
   // Estado cambiado
   expect(screen.getByText(/el estado actual es: abierto \(true\)/i)).toBeInTheDocument();
-  expect(image.src).toContain('cerrar.png');
+  expect(image.src).toContain('test-file-stub');
 });
