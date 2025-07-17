@@ -1,18 +1,40 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import "./FormUserData.css";
 import Btn from "../Btn/Btn";
 import { useTranslation } from "react-i18next";
 import CatCrew from "../../assets/cat-crew.png";
 
 const FormUserData = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const { t } = useTranslation();
-  const onSubmit = (data) => console.log(data);
+
+  const onError = () => {
+    toast.error(t("formUserData_toast_error"), {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+
+  const onSubmit = () => {
+    toast.success(t("formUserData_toast_success"), {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
 
   return (
     <div className="form-container">
@@ -21,7 +43,8 @@ const FormUserData = () => {
       </div>
       <div className="form-block">
         <h2>{t("formUserData_title")}</h2>
-        <form className="form" onSubmit={handleSubmit(onSubmit)}>
+        <form className="form" onSubmit={handleSubmit(onSubmit, onError)}>
+
           <label>
             {t("formUserData_label_firstName")}
             <input
@@ -38,6 +61,7 @@ const FormUserData = () => {
               <span className="error">{errors.firstName.message}</span>
             )}
           </label>
+
           <label>
             {t("formUserData_label_email")}
             <input
@@ -54,6 +78,7 @@ const FormUserData = () => {
               <span className="error">{errors.email.message}</span>
             )}
           </label>
+
           <label>
             {t("formUserData_label_phone")}
             <input
@@ -70,6 +95,7 @@ const FormUserData = () => {
               <span className="error">{errors.phoneNumber.message}</span>
             )}
           </label>
+
           <label>
             {t("formUserData_label_message")}
             <textarea
