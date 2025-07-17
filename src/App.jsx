@@ -1,20 +1,20 @@
-import React from 'react';
-import './App.css';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React from "react";
+import "./App.css";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // Context
-import ThemeProvider from './context/ThemeProvider';
+import ThemeProvider from "./context/ThemeProvider";
 
 // Layout
-import Layout from './components/Layout/Layout';
+import Layout from "./components/Layout/Layout";
 
 // Pages
-import HomePage from './pages/HomePage/HomePage';
-import AdoptPage from './pages/AdoptPage/AdoptPage';
-import MapPage from './pages/MapPage/MapPage';
-import FavPage from './pages/FavPage/FavPage';
+import HomePage from "./pages/HomePage/HomePage";
+import AdoptPage from "./pages/AdoptPage/AdoptPage";
+import MapPage from "./pages/MapPage/MapPage";
+import FavPage from "./pages/FavPage/FavPage";
 
 function App() {
   return (
@@ -28,7 +28,7 @@ function App() {
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-      
+
       <ToastContainer
         position="bottom-right"
         autoClose={3000}
