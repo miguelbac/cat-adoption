@@ -16,6 +16,7 @@
   --color-link-hover: #747bff;
   --button-bg: #f9f9f9;
   --button-border-hover: #646cff;
+  --color-form-bg: #f2e2d9;
 
   /* Footer claro */
   --color-footer-background: #eeddd3;
@@ -49,6 +50,7 @@
   --color-footer-background: #1e1e1e;
   --color-footer-text: #dddddd;
   --color-footer-link-hover: lightblue;
+  --color-form-bg: #2b2b2b;
 
   /* CatSlider y tarjetas modo oscuro */
   --card-bg: #1e1e1e;

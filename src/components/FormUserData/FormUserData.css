@@ -18,7 +18,7 @@
   display: block;
   margin: 0 auto;
   object-fit: contain;
-  margin-top:1rem
+  margin-top: 1rem;
 }
 
 .form-block {
@@ -26,7 +26,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f2e2d9;
+  background-color: var(--color-form-bg);
   border-radius: 15px;
   min-width: 600px;
   max-width: 1200px;
@@ -36,12 +36,15 @@
   position: relative;
   font-size: 24px;
   z-index: 1;
+  color: var(--color-text);
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }
 
 .form-block h2 {
   margin-bottom: 1rem;
   margin-top: 0;
   font-size: 30px;
+  color: var(--color-text);
 }
 
 .error {
@@ -50,7 +53,7 @@
   align-items: center;
   height: 20px;
   font-size: 18px;
-  color: #ef5660;
+  color: #ef5660; /* se puede mantener fijo */
   margin-top: 4px;
 }
 
@@ -65,12 +68,19 @@
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
+  color: var(--color-text);
 }
 
 .form textarea {
   height: 80px;
   padding-top: 10px;
   resize: none;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 18px;
+  transition: border-color 0.2s;
 }
 
 .form input,
@@ -80,7 +90,8 @@
   border-radius: 8px;
   font-size: 18px;
   height: 40px;
-  background: #fff;
+  background-color: var(--color-background);
+  color: var(--color-text);
   transition: border-color 0.2s;
 }
 
