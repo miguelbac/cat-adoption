@@ -18,8 +18,8 @@
 }
 
 .cat-card img {
-  width: 200px !important;
-  height: 200px !important;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
   border-radius: 8px;
   transition: transform 0.3s ease;
@@ -186,14 +186,14 @@
 @media (max-width: 768px) {
   .cat-card {
     /* Le damos un ancho más pequeño a la tarjeta entera */
-    width: 160px;
-    padding: 10px;
+    width: 110px;
+    padding: 15px;
     min-height: 0;
   }
   .cat-card img {
     /* La imagen ahora es más pequeña para caber en la tarjeta */
-    width: 140px;
-    height: 140px;
+    width: 120px;
+    height: 120px;
   }
 
   .cat-card h2 {
@@ -209,8 +209,8 @@
   }
 
   .image-wrapper {
-    width: 150px;
-    height: 150px;
+    width: 110px;
+    height: 110px;
   }
 
   .favorite-icon {
@@ -219,4 +219,38 @@
     bottom: 6px;
     right: 6px;
   }
+
+  @media (max-width: 480px) {
+  /* Hacemos la tarjeta aún más estrecha */
+  .cat-card {
+    width: 90px;
+    padding: 7px;
+  }
+  
+  /* Hacemos la imagen más pequeña para que quepa bien */
+  .cat-card img {
+    width: 70px;
+    height: 70px;
+  }
+  
+  /* Y ajustamos los textos a un tamaño menor */
+  .cat-card h2 {
+    font-size: 13px;
+  }
+  
+  .cat-card.center h2 {
+    font-size: 14px;
+  }
+  
+  .cat-card.side h2 {
+    font-size: 12px;
+  }
+
+  .favorite-icon {
+    width: 24px;
+    height: 24px;
+    bottom: 5px;
+    right: 5px;
+  }
+}
 }
