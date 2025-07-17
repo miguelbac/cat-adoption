@@ -1,7 +1,7 @@
 import React, { useState, useEffect }, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { toast } from "react-toastify";
-import './CatCard.css';
+import "./CatCard.css";
 import Btn from "../Btn/Btn";
 import unfavIcon from "../../assets/unfav.png";
 import favIcon from "../../assets/fav.png";
@@ -27,37 +27,7 @@ function CatCard({ image, name, size = "side", onClick, catData, onToggleFavorit
     }
   };
 
-  const handleFavoriteClick = (e) => {
-    e.stopPropagation();
 
-    if (!catData.id) {
-      console.error("No se puede alternar favorito: falta ID del gato");
-      return;
-    }
-
-    const catToToggle = {
-      id: catData.id,
-      image: image,
-      name: name,
-      width: catData.width,
-      height: catData.height,
-      breed: catData.breed || t('catCard_breed_default') // Opcional: traducir 'Mestizo'
-    };
-
-    const newFavState = toggleFavorite(catToToggle);
-    setIsFav(newFavState);
-
-    // Se usan las traducciones en las notificaciones
-    if (newFavState) {
-      toast.success(t('toast_added_to_favorites', { name: name }), { /* ...opciones... */ });
-    } else {
-      toast.info(t('toast_removed_from_favorites', { name: name }), { /* ...opciones... */ });
-    }
-    
-    if (onToggleFavorite) {
-      onToggleFavorite();
-    }
-  };
 
   const handleFavoriteClick = (e) => {
     e.stopPropagation();
@@ -117,12 +87,12 @@ function CatCard({ image, name, size = "side", onClick, catData, onToggleFavorit
       <div className="image-wrapper">
         <div className="image-wrapper">
         <img
-            src={image}
-            alt={`Foto de ${name}`} // <-- Texto alt traducido
-            onError={(e) => {
-              e.target.src = "https://placekitten.com/200/200";
-            }}
-          />
+          src={image}
+          alt={`Foto de ${name}`}
+          onError={(e) => {
+            e.target.src = "https://placekitten.com/200/200";
+          }}
+        />
         <div className="favorite-icon" onClick={handleFavoriteClick}>
           <img
             src={isFav ? favIcon : unfavIcon}
@@ -142,7 +112,7 @@ function CatCard({ image, name, size = "side", onClick, catData, onToggleFavorit
       <h2>{name}</h2>
       {size === "center" && (
         <Btn
-          label="Adóptame" // <-- Botón traducido
+          label="Adóptame"
           to="/adopt"
           bgcolor="#91eda7"
           textcolor="#ffffff"

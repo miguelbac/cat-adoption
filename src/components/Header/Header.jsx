@@ -60,7 +60,7 @@ const Header = () => {
       <nav className={`${styles['nav-menu']} ${isOpen ? styles['nav-menu--open'] : ''}`}>
         <Link to="/" onClick={() => setIsOpen(false)} className={styles['nav-menu__link']}>{t('header_nav_home')}</Link>
         <Link to="/adopt" onClick={() => setIsOpen(false)} className={styles['nav-menu__link']}>{t('header_nav_adopt')}</Link>
-        <Link to="/fav" onClick={() => setIsOpen(false)} className={styles['nav-menu__link']}>Favoritos</Link>
+        
         <Link to="/map" onClick={() => setIsOpen(false)} className={styles['nav-menu__link']}>{t('header_nav_map')}</Link>
         <Link to="/fav" onClick={() => setIsOpen(false)} className={styles['nav-menu__link']}>{t('header_nav_favorites')}</Link>
         <LanguageSwitcher />

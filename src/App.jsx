@@ -19,12 +19,13 @@ import FavPage from './pages/FavPage/FavPage';
 function App() {
   return (
     <>
+    <ThemeProvider>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="adopt" element={<AdoptPage />} />
           <Route path="map" element={<MapPage />} />
-          <Route path="fav" element={<FavPage />} />
+          <Route path="mapa" element={<MapPage />} />
           <Route path="fav" element={<FavPage />} />
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
@@ -42,20 +43,7 @@ function App() {
         pauseOnHover
         theme="dark"
       />
-      
-      {/* ToastContainer para las notificaciones */}
-      <ToastContainer
-        position="bottom-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
+    </ThemeProvider>
     </>
   );
 }

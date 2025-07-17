@@ -59,5 +59,21 @@
   "favPage_clear_all": "Remove All",
   "favPage_no_favorites_title": "You have no favorite cats 🐾",
   "favPage_no_favorites_subtitle": "Add some from the main page.",
-  "toast_cleared_favorites": "You have no heart...💔"
+  "toast_cleared_favorites": "You have no heart...💔",
+  "formUserData_title": "To contact you - fill out the form",
+  "formUserData_label_firstName": "First Name",
+  "formUserData_error_firstName_required": "First name is required",
+  "formUserData_error_firstName_min": "Minimum 3 characters",
+  "formUserData_label_email": "Email",
+  "formUserData_error_email_required": "Email is required",
+  "formUserData_error_email_invalid": "Invalid email format",
+  "formUserData_label_phone": "Phone number",
+  "formUserData_error_phone_required": "Phone number is required",
+  "formUserData_error_phone_invalid": "Invalid phone number format",
+  "formUserData_label_message": "Message",
+  "formUserData_placeholder_firstName": "Sophia",
+  "formUserData_placeholder_email": "example@example.com",
+  "formUserData_placeholder_phone": "612345678",
+  "formUserData_placeholder_message": "Message",
+  "formUserData_submit": "Send!"
 }

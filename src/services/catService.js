@@ -28,6 +28,7 @@ const catNames = [  'Tucker', 'Zoey', 'Coco', 'Penny', 'Lola', 'Ruby', 'Lily', '
   'Chisguete', 'Ronroncio', 'Don Gato', 'Doña Michi'
 ];
 
+// Función para obtener un nombre aleatorio
 function getRandomName() {
   const randomIndex = Math.floor(Math.random() * catNames.length);
   return catNames[randomIndex];

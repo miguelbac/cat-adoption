@@ -59,5 +59,21 @@
   "favPage_clear_all": "Eliminar todos",
   "favPage_no_favorites_title": "No tienes gatos en favoritos 🐾",
   "favPage_no_favorites_subtitle": "Agrega algunos desde la página principal.",
-  "toast_cleared_favorites": "No tienes corazón...💔"
+  "toast_cleared_favorites": "No tienes corazón...💔",
+  "formUserData_title": "Para contactarte, completa el formulario",
+  "formUserData_label_firstName": "Nombre",
+  "formUserData_error_firstName_required": "El nombre es obligatorio",
+  "formUserData_error_firstName_min": "Mínimo 3 caracteres",
+  "formUserData_label_email": "Correo electrónico",
+  "formUserData_error_email_required": "El correo electrónico es obligatorio",
+  "formUserData_error_email_invalid": "Formato de correo electrónico no válido",
+  "formUserData_label_phone": "Número de teléfono",
+  "formUserData_error_phone_required": "El número de teléfono es obligatorio",
+  "formUserData_error_phone_invalid": "Formato de número de teléfono no válido",
+  "formUserData_label_message": "Mensaje",
+  "formUserData_placeholder_firstName": "Sofía",
+  "formUserData_placeholder_email": "ejemplo@ejemplo.com",
+  "formUserData_placeholder_phone": "612345678",
+  "formUserData_placeholder_message": "Mensaje",
+  "formUserData_submit": "¡Enviar!"
 }

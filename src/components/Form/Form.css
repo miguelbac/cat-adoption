@@ -6,12 +6,12 @@
   background-color: #f2e2d9;
   border-radius: 15px;
   max-width: 1200px;
-  width: 60%;
+  width: 90%;
   padding: 2%;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 0;
   position: relative;
-  margin-top: 185px;
   font-size: 24px;
 }
 
@@ -30,10 +30,20 @@
   margin-bottom: 50px;
   font-size: 36px;
 }
-.form-block img {
-  position: absolute;
-  top: -185px;
+.form-img {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 600px;
+  height: 300px; /* або як вам потрібно */
 }
+.form-img img {
+  position: absolute;
+  left: 0;
+  top: -155px;
+  z-index: 5; /* було 50px */
+}
+
 .form {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
