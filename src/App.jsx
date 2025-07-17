@@ -23,6 +23,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="adopt" element={<AdoptPage />} />
+          <Route path="map" element={<MapPage />} />
           <Route path="mapa" element={<MapPage />} />
           <Route path="fav" element={<FavPage />} />
         </Route>

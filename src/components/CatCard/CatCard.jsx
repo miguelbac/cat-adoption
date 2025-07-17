@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect }, { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 import { toast } from "react-toastify";
 import "./CatCard.css";
 import Btn from "../Btn/Btn";
 import unfavIcon from "../../assets/unfav.png";
 import favIcon from "../../assets/fav.png";
 import { isFavorite, toggleFavorite } from "../../services/favouritesService";
+import { useTranslation } from "react-i18next"; // <-- Se importa el hook
 
 function CatCard({ image, name, size = "side", onClick, catData, onToggleFavorite }) {
+  const { t } = useTranslation(); // <-- Se obtiene la función 't'
   const [isFav, setIsFav] = useState(false);
 
   useEffect(() => {
@@ -23,6 +26,8 @@ function CatCard({ image, name, size = "side", onClick, catData, onToggleFavorit
       onClick();
     }
   };
+
+
 
   const handleFavoriteClick = (e) => {
     e.stopPropagation();
@@ -80,6 +85,7 @@ function CatCard({ image, name, size = "side", onClick, catData, onToggleFavorit
   return (
     <div className={`cat-card ${size}`} onClick={handleClick}>
       <div className="image-wrapper">
+        <div className="image-wrapper">
         <img
           src={image}
           alt={`Foto de ${name}`}
@@ -87,6 +93,14 @@ function CatCard({ image, name, size = "side", onClick, catData, onToggleFavorit
             e.target.src = "https://placekitten.com/200/200";
           }}
         />
+        <div className="favorite-icon" onClick={handleFavoriteClick}>
+          <img
+            src={isFav ? favIcon : unfavIcon}
+            alt={t(isFav ? 'catCard_alt_is_favorite' : 'catCard_alt_is_not_favorite')} // <-- Alt del icono traducido
+            className={`heart-icon ${isFav ? "favorite" : ""}`}
+          />
+        </div>
+      </div>
         <div className="favorite-icon" onClick={handleFavoriteClick}>
           <img
             src={isFav ? favIcon : unfavIcon}
