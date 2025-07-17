@@ -104,11 +104,11 @@
 }
 
 .arrow.left {
-  left: 10px;
+  left: 0px;
 }
 
 .arrow.right {
-  right: 10px;
+  right: 0px;
 }
 
 .arrow:hover {
