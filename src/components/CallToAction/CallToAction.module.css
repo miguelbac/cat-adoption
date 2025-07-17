@@ -25,13 +25,16 @@
   position: relative;
   z-index: 1;
   font-size: 24px;
+  height: 220px;
 }
 
 .cta__scratch {
   position: absolute;
-  bottom: -180px;
+  bottom: -50px;
   left: 50%;
   transform: translateX(-50%);
+  width: 200px;
+  height: 250px !important;
 }
 
 .cta__text,

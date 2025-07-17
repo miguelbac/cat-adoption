@@ -230,11 +230,11 @@
   }
 
   .arrow.left {
-    left: 5px;
+    left: 65px;
   }
 
   .arrow.right {
-    right: 5px;
+    right: 65px;
   }
 }
 
@@ -295,13 +295,21 @@
   }
 
   .card-track {
-    gap: 15px;
+    gap: 10px;
   }
 
   .arrow {
     width: 35px;
     height: 35px;
     font-size: 18px;
+  }
+
+  .arrow.left {
+    left: 130px; /* Las mueve 10px desde la izquierda */
+  }
+
+  .arrow.right {
+    right: 130px; /* Las mueve 10px desde la derecha */
   }
 
   .slider-indicators {
