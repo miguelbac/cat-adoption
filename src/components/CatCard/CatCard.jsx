@@ -1,5 +1,4 @@
-import React, { useState, useEffect }, { useState, useEffect } from "react";
-import { toast } from "react-toastify";
+import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import "./CatCard.css";
 import Btn from "../Btn/Btn";
