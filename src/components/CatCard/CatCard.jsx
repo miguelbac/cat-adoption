@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect }, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
-import "./CatCard.css";
+import { toast } from "react-toastify";
+import './CatCard.css';
 import Btn from "../Btn/Btn";
 import unfavIcon from "../../assets/unfav.png";
 import favIcon from "../../assets/fav.png";
 import { isFavorite, toggleFavorite } from "../../services/favouritesService";
+import { useTranslation } from "react-i18next"; // <-- Se importa el hook
 
 function CatCard({ image, name, size = "side", onClick, catData, onToggleFavorite }) {
+  const { t } = useTranslation(); // <-- Se obtiene la función 't'
   const [isFav, setIsFav] = useState(false);
 
   useEffect(() => {
@@ -21,6 +24,38 @@ function CatCard({ image, name, size = "side", onClick, catData, onToggleFavorit
   const handleClick = () => {
     if (size === "side" && onClick) {
       onClick();
+    }
+  };
+
+  const handleFavoriteClick = (e) => {
+    e.stopPropagation();
+
+    if (!catData.id) {
+      console.error("No se puede alternar favorito: falta ID del gato");
+      return;
+    }
+
+    const catToToggle = {
+      id: catData.id,
+      image: image,
+      name: name,
+      width: catData.width,
+      height: catData.height,
+      breed: catData.breed || t('catCard_breed_default') // Opcional: traducir 'Mestizo'
+    };
+
+    const newFavState = toggleFavorite(catToToggle);
+    setIsFav(newFavState);
+
+    // Se usan las traducciones en las notificaciones
+    if (newFavState) {
+      toast.success(t('toast_added_to_favorites', { name: name }), { /* ...opciones... */ });
+    } else {
+      toast.info(t('toast_removed_from_favorites', { name: name }), { /* ...opciones... */ });
+    }
+    
+    if (onToggleFavorite) {
+      onToggleFavorite();
     }
   };
 
@@ -80,13 +115,22 @@ function CatCard({ image, name, size = "side", onClick, catData, onToggleFavorit
   return (
     <div className={`cat-card ${size}`} onClick={handleClick}>
       <div className="image-wrapper">
+        <div className="image-wrapper">
         <img
-          src={image}
-          alt={`Foto de ${name}`}
-          onError={(e) => {
-            e.target.src = "https://placekitten.com/200/200";
-          }}
-        />
+            src={image}
+            alt={`Foto de ${name}`} // <-- Texto alt traducido
+            onError={(e) => {
+              e.target.src = "https://placekitten.com/200/200";
+            }}
+          />
+        <div className="favorite-icon" onClick={handleFavoriteClick}>
+          <img
+            src={isFav ? favIcon : unfavIcon}
+            alt={t(isFav ? 'catCard_alt_is_favorite' : 'catCard_alt_is_not_favorite')} // <-- Alt del icono traducido
+            className={`heart-icon ${isFav ? "favorite" : ""}`}
+          />
+        </div>
+      </div>
         <div className="favorite-icon" onClick={handleFavoriteClick}>
           <img
             src={isFav ? favIcon : unfavIcon}
@@ -98,7 +142,7 @@ function CatCard({ image, name, size = "side", onClick, catData, onToggleFavorit
       <h2>{name}</h2>
       {size === "center" && (
         <Btn
-          label="Adóptame"
+          label="Adóptame" // <-- Botón traducido
           to="/adopt"
           bgcolor="#91eda7"
           textcolor="#ffffff"

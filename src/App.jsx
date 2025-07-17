@@ -1,15 +1,20 @@
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
+import React from 'react';
 import './App.css';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import MapPage from './pages/MapPage/MapPage';
+
+// Context
+import ThemeProvider from './context/ThemeProvider';
+
+// Layout
+import Layout from './components/Layout/Layout';
+
+// Pages
 import HomePage from './pages/HomePage/HomePage';
 import AdoptPage from './pages/AdoptPage/AdoptPage';
+import MapPage from './pages/MapPage/MapPage';
 import FavPage from './pages/FavPage/FavPage';
-import Layout from './components/Layout/Layout';
-import Test from './components/Test/Test';
 
 function App() {
   return (
@@ -20,9 +25,23 @@ function App() {
           <Route path="adopt" element={<AdoptPage />} />
           <Route path="map" element={<MapPage />} />
           <Route path="fav" element={<FavPage />} />
+          <Route path="fav" element={<FavPage />} />
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
+      
+      <ToastContainer
+        position="bottom-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       
       {/* ToastContainer para las notificaciones */}
       <ToastContainer
