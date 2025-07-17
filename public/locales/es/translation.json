@@ -75,5 +75,6 @@
   "formUserData_placeholder_email": "ejemplo@ejemplo.com",
   "formUserData_placeholder_phone": "612345678",
   "formUserData_placeholder_message": "Mensaje",
-  "formUserData_submit": "¡Enviar!"
+  "formUserData_submit": "¡Enviar!",
+  "formUserData_showSucces_message": "¡Datos enviados exitosamente!"
 }

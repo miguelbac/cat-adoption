@@ -1,5 +1,4 @@
-import React, { useState, useEffect }, { useState, useEffect } from "react";
-import { toast } from "react-toastify";
+import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import "./CatCard.css";
 import Btn from "../Btn/Btn";
@@ -8,7 +7,14 @@ import favIcon from "../../assets/fav.png";
 import { isFavorite, toggleFavorite } from "../../services/favouritesService";
 import { useTranslation } from "react-i18next"; // <-- Se importa el hook
 
-function CatCard({ image, name, size = "side", onClick, catData, onToggleFavorite }) {
+function CatCard({
+  image,
+  name,
+  size = "side",
+  onClick,
+  catData,
+  onToggleFavorite,
+}) {
   const { t } = useTranslation(); // <-- Se obtiene la función 't'
   const [isFav, setIsFav] = useState(false);
 
@@ -27,8 +33,6 @@ function CatCard({ image, name, size = "side", onClick, catData, onToggleFavorit
     }
   };
 
-
-
   const handleFavoriteClick = (e) => {
     e.stopPropagation();
 
@@ -43,7 +47,7 @@ function CatCard({ image, name, size = "side", onClick, catData, onToggleFavorit
       name: name,
       width: catData.width,
       height: catData.height,
-      breed: catData.breed || "Mestizo"
+      breed: catData.breed || "Mestizo",
     };
 
     const newFavState = toggleFavorite(catToToggle);
@@ -86,21 +90,25 @@ function CatCard({ image, name, size = "side", onClick, catData, onToggleFavorit
     <div className={`cat-card ${size}`} onClick={handleClick}>
       <div className="image-wrapper">
         <div className="image-wrapper">
-        <img
-          src={image}
-          alt={`Foto de ${name}`}
-          onError={(e) => {
-            e.target.src = "https://placekitten.com/200/200";
-          }}
-        />
-        <div className="favorite-icon" onClick={handleFavoriteClick}>
           <img
-            src={isFav ? favIcon : unfavIcon}
-            alt={t(isFav ? 'catCard_alt_is_favorite' : 'catCard_alt_is_not_favorite')} // <-- Alt del icono traducido
-            className={`heart-icon ${isFav ? "favorite" : ""}`}
+            src={image}
+            alt={`Foto de ${name}`}
+            onError={(e) => {
+              e.target.src = "https://placekitten.com/200/200";
+            }}
           />
+          <div className="favorite-icon" onClick={handleFavoriteClick}>
+            <img
+              src={isFav ? favIcon : unfavIcon}
+              alt={t(
+                isFav
+                  ? "catCard_alt_is_favorite"
+                  : "catCard_alt_is_not_favorite"
+              )} // <-- Alt del icono traducido
+              className={`heart-icon ${isFav ? "favorite" : ""}`}
+            />
+          </div>
         </div>
-      </div>
         <div className="favorite-icon" onClick={handleFavoriteClick}>
           <img
             src={isFav ? favIcon : unfavIcon}

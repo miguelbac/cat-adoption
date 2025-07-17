@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import "./FormUserData.css";
 import Btn from "../Btn/Btn";
 import { useTranslation } from "react-i18next";
+import { ToastContainer, toast } from "react-toastify";
 
 const FormUserData = () => {
   const {
@@ -11,7 +12,22 @@ const FormUserData = () => {
     formState: { errors },
   } = useForm();
   const { t } = useTranslation();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data);
+    showSuccess();
+  };
+
+  const showSuccess = () => {
+    toast.success(t("formUserData_showSucces_message"), {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "light",
+    });
+  };
 
   return (
     <>
@@ -81,6 +97,8 @@ const FormUserData = () => {
               <span className="error">{errors.message.message}</span>
             )}
           </label>
+
+          <ToastContainer />
 
           <Btn label={t("formUserData_submit")} />
         </form>
