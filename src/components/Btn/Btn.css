@@ -1,17 +1,16 @@
 .btn-comp {
+  background-color: var(--btn-bg-color);
+  color: var(--btn-text-color);
   border: none;
-  border-radius: 6px;
+  border-radius: 30px;
   cursor: pointer;
   font-weight: 600;
-  padding: 0 16px;
+  padding: 10px 16px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   transition: background-color 0.3s ease, transform 0.2s ease;
   user-select: none;
-  border-radius: 30px;
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
 
 .btn-comp:hover {

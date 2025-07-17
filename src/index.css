@@ -18,6 +18,9 @@
   --button-border-hover: #646cff;
   --color-form-bg: #f2e2d9;
 
+  --btn-bg-color: #30de64;
+  --btn-text-color: #000000;
+
   /* Footer claro */
   --color-footer-background: #eeddd3;
   --color-footer-text: #000000;
@@ -45,12 +48,15 @@
   --color-link-hover: #535bf2;
   --button-bg: #1a1a1a;
   --button-border-hover: #646cff;
+  --color-form-bg: #2b2b2b;
+
+  --btn-bg-color: #005e3f;
+  --btn-text-color: #ffffff;
 
   /* Footer oscuro */
   --color-footer-background: #1e1e1e;
   --color-footer-text: #dddddd;
   --color-footer-link-hover: lightblue;
-  --color-form-bg: #2b2b2b;
 
   /* CatSlider y tarjetas modo oscuro */
   --card-bg: #1e1e1e;
@@ -67,7 +73,6 @@
   --loading-color: #ccc;
 }
 
-/* Estilo global del body */
 body {
   margin: 0;
   min-width: 320px;
@@ -88,7 +93,6 @@ body {
   background-color: var(--color-background);
 }
 
-/* Otros estilos */
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -126,11 +130,6 @@ button:focus-visible {
   outline: none;
 }
 
-@media (prefers-color-scheme: light) {
-  /* no necesario por uso de variables */
-}
-
-/* Para Layout responsive */
 #root {
   display: flex;
   flex-direction: column;

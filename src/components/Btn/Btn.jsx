@@ -5,15 +5,14 @@ const Btn = ({
   label,
   to,
   onClick,
-  bgcolor = "#30DE64",
-  textcolor = "#000000",
+  bgcolor = "var(--btn-bg-color)",
+  textcolor = "var(--btn-text-color)",
   width = "auto",
   height = "auto",
   fontsize = "20px",
 }) => {
   const handleClick = (e) => {
     if (to) {
-      // Navegar a la ruta indicada
       window.location.href = to;
     } else if (onClick) {
       onClick(e);
@@ -25,11 +24,11 @@ const Btn = ({
       className="btn-comp"
       onClick={handleClick}
       style={{
-        color: textcolor,
         backgroundColor: bgcolor,
-        fontSize: fontsize,
+        color: textcolor,
         width: width,
         height: height,
+        fontSize: fontsize,
       }}
     >
       {label}
