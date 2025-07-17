@@ -16,7 +16,6 @@ function HomePage() {
       <div className="content">
         <CatSlider />
         <CallToAction />
-        <FormUserData />
       </div>
     </div>
   );

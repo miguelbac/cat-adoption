@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import "./FormUserData.css";
 import Btn from "../Btn/Btn";
 import { useTranslation } from "react-i18next";
+import CatCrew from "../../assets/cat-crew.png";
 
 const FormUserData = () => {
   const {
@@ -14,13 +15,12 @@ const FormUserData = () => {
   const onSubmit = (data) => console.log(data);
 
   return (
-    <>
+    <div className="form-container">
       <div className="form-img">
-        <img src="src/assets/cat-crew.png" alt={t("cta_alt_cats")} />
+        <img src={CatCrew} alt={t("cta_alt_cats")} />
       </div>
       <div className="form-block">
         <h2>{t("formUserData_title")}</h2>
-
         <form className="form" onSubmit={handleSubmit(onSubmit)}>
           <label>
             {t("formUserData_label_firstName")}
@@ -73,7 +73,6 @@ const FormUserData = () => {
           <label>
             {t("formUserData_label_message")}
             <textarea
-              type="text-area"
               placeholder={t("formUserData_placeholder_message")}
               {...register("message")}
             />
@@ -85,7 +84,7 @@ const FormUserData = () => {
           <Btn label={t("formUserData_submit")} />
         </form>
       </div>
-    </>
+    </div>
   );
 };
 

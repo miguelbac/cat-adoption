@@ -1,3 +1,26 @@
+.form-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.form-img {
+  margin-bottom: -18px; /* saca visualmente la imagen fuera del bloque */
+  z-index: 2;
+}
+
+.form-img img {
+  width: 600px;
+  max-width: 90vw;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+  margin-top:1rem
+}
+
 .form-block {
   display: flex;
   flex-direction: column;
@@ -7,30 +30,17 @@
   border-radius: 15px;
   max-width: 1200px;
   width: 90%;
-  padding: 2%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0;
+  padding: 2rem;
+  padding-top: 3rem;
   position: relative;
   font-size: 24px;
+  z-index: 1;
 }
 
 .form-block h2 {
-  margin-bottom: 50px;
+  margin-bottom: 1rem;
+  margin-top: 0;
   font-size: 36px;
-}
-.form-img {
-  position: relative;
-  display: block;
-  margin: 0 auto;
-  width: 600px;
-  height: 300px;
-}
-.form-img img {
-  position: absolute;
-  left: 0;
-  top: -155px;
-  z-index: 5; /* було 50px */
 }
 
 .error {
@@ -41,12 +51,14 @@
   font-size: 18px;
   color: #ef5660;
 }
+
 .form {
   width: 70%;
   display: grid;
   grid-template-columns: 1fr;
   gap: 10px;
 }
+
 .form label {
   margin-bottom: 10px;
   display: grid;
@@ -55,12 +67,14 @@
 }
 
 .form textarea {
-  height: 50px;
+  height: 80px;
+  padding-top: 10px;
   resize: none;
 }
+
 .form input,
 .form textarea {
-  padding-left: 12px; /* Відступ для тексту та плейсхолдера */
+  padding-left: 12px;
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 18px;
@@ -69,16 +83,11 @@
   transition: border-color 0.2s;
 }
 
-.form textarea {
-  height: 80px; /* Збільшена висота */
-  padding-top: 10px;
-  resize: none;
-}
 .form input:focus,
 .form textarea:focus {
   border: 2px solid;
-  border-radius: 5px;
   border-color: #56ef9b;
+  border-radius: 5px;
   outline: none;
 }
 
@@ -93,12 +102,19 @@
   .form {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
   }
+
   .form label {
-    margin-bottom: 10px;
     display: flex;
     flex-direction: column;
+  }
+
+  .form-img img {
+    width: 90%;
+  }
+
+  .form-block {
+    padding-top: 100px; /* más espacio si la imagen se superpone más */
   }
 }
