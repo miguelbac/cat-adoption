@@ -18,7 +18,7 @@ import FavPage from './pages/FavPage/FavPage';
 
 function App() {
   return (
-    <ThemeProvider>
+    <>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
