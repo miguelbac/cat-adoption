@@ -1,12 +1,35 @@
-# React + Vite
+# 🐱 Adopta un Michi - Asturias
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Adopta un Michi** es una aplicación web desarrollada por y para amantes de los gatos en Asturias 🏞️. Nuestra misión es facilitar la **adopción responsable** mediante una experiencia visualmente encantadora, multilingüe y con datos reales de gatos extraídos desde [The Cat API](https://thecatapi.com/).
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Características
 
-## Expanding the ESLint configuration
+- 🐾 **Listado interactivo de gatos** con información básica y fotos adorables.
+- 🌙 **Modo claro/oscuro** para adaptarse a tu entorno o preferencia visual.
+- 🌍 **Soporte multilingüe**: disponible en **español** e **inglés** gracias a `react-i18next`.
+- 💖 Sistema de **favoritos persistentes** usando `localStorage`.
+- 🧪 **Testeado** para garantizar estabilidad y experiencia de usuario.
+- 🎨 **Estética cute y responsive**, adaptada a móviles y escritorio.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🚀 Tecnologías utilizadas
+
+- **React** (con Hooks y componentes reutilizables)
+- **The Cat API** (para obtener imágenes e IDs de gatos)
+- **i18next** (soporte multilenguaje)
+- **CSS personalizado** (sin frameworks externos)
+- **LocalStorage** (favoritos persistentes)
+- **Jest + React Testing Library** (para pruebas)
+
+---
+
+## 📦 Instalación local
+
+```bash
+git clone https://github.com/tu-usuario/cat-adoption.git
+cd cat-adoption
+npm install
+npm run dev
